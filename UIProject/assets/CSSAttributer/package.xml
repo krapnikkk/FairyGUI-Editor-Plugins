@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="1g71c9u1">
+  <resources>
+    <component id="u66t0" name="Main.xml" path="/" exported="true"/>
+    <component id="nmoy5" name="Button.xml" path="/" exported="true"/>
+    <image id="nmoy6" name="button_up.png" path="/images/" scale="9grid" scale9grid="10,6,65,11" duplicatePadding="true"/>
+    <image id="nmoy7" name="button_up@2x.png" path="/images/" scale="9grid" scale9grid="15,13,135,26" duplicatePadding="true"/>
+    <image id="nmoy8" name="button_down.png" path="/images/" scale="9grid" scale9grid="10,6,65,11" duplicatePadding="true"/>
+    <image id="nmoy9" name="button_down@2x.png" path="/images/" scale="9grid" scale9grid="19,13,138,26" duplicatePadding="true"/>
+    <component id="nmoya" name="TextArea.xml" path="/" exported="true"/>
+  </resources>
+  <publish name=""/>
+</packageDescription>

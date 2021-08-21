@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="270,120" bgColorEnabled="true" bgColor="#383838">
+  <displayList>
+    <text id="n1_edka" name="title" xy="4,8" size="71,19" fontSize="12" color="#bdbdbd" align="center" autoSize="none" text="CSS"/>
+    <component id="n3_nmoy" name="textarea" src="nmoya" fileName="TextArea.xml" xy="81,7" size="171,80"/>
+    <component id="n5_nmoy" name="btn_clear" src="nmoy5" fileName="Button.xml" xy="81,95" size="80,20">
+      <Button title="清空"/>
+    </component>
+    <component id="n4_nmoy" name="btn_apply" src="nmoy5" fileName="Button.xml" xy="172,95" size="80,20">
+      <Button title="应用"/>
+    </component>
+  </displayList>
+</component>

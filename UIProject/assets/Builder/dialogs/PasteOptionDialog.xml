@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="419,190">
+  <controller name="c1" pages="0,,1,,2," selected="0"/>
+  <displayList>
+    <component id="n0" name="frame" src="gcza1l" fileName="Window/WindowFrame.xml" pkg="nk9ejx23" xy="0,0" size="419,190" locked="true">
+      <relation target="" sidePair="width-width,height-height"/>
+      <Label title="粘贴项目"/>
+    </component>
+    <component id="n37" name="n37" src="gcza13" fileName="Button/RadioButton.xml" pkg="nk9ejx23" xy="30,62" size="58,19">
+      <Button checked="true" title="重命名" controller="c1" page="0"/>
+    </component>
+    <component id="n38" name="n38" src="gcza13" fileName="Button/RadioButton.xml" pkg="nk9ejx23" xy="30,89" size="46,19">
+      <Button title="替换" controller="c1" page="1"/>
+    </component>
+    <text id="n42" name="n42" xy="19,35" size="379,18" fontSize="12" color="#bdbdbd" autoSize="none" singleLine="true" text="同名元件处理"/>
+    <component id="n3" name="n3" src="xualm" fileName="Button/Button.xml" pkg="nk9ejx23" xy="102,149" group="n44">
+      <Button title="确定"/>
+    </component>
+    <component id="n4" name="n4" src="xualm" fileName="Button/Button.xml" pkg="nk9ejx23" xy="231,149" group="n44">
+      <Button title="取消"/>
+    </component>
+    <group id="n44" name="n44" xy="102,149" size="214,25"/>
+    <component id="n45" name="n45" src="gcza13" fileName="Button/RadioButton.xml" pkg="nk9ejx23" xy="30,117" size="46,19">
+      <Button title="跳过" controller="c1" page="2"/>
+    </component>
+  </displayList>
+</component>

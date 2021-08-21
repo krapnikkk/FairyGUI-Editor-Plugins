@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="255,63" overflow="scroll" scroll="horizontal" scrollBar="hidden" bgColorEnabled="true" bgColor="#383838">
+  <displayList>
+    <component id="n1" name="head" src="nkoeu75" fileName="timeline/TimelineHead.xml" xy="177,0" size="10,65">
+      <relation target="" sidePair="height-height"/>
+    </component>
+  </displayList>
+</component>

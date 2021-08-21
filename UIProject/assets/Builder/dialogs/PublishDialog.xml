@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="750,521">
+  <controller name="global" pages="0,包设置,1,全局设置" selected="0"/>
+  <displayList>
+    <component id="n0" name="frame" src="gcza1l" fileName="Window/WindowFrame.xml" pkg="nk9ejx23" xy="0,0" size="750,521">
+      <relation target="" sidePair="width-width,height-height"/>
+      <Label title="发布设置"/>
+    </component>
+    <graph id="n1" name="n1" xy="1,23" size="196,451" group="n122_r6vk" type="rect" lineSize="0" lineColor="#ff292828" fillColor="#ff3d3d3d"/>
+    <list id="n26" name="pkgs" xy="2,24" size="194,450" group="n122_r6vk" overflow="scroll" scrollBar="visible" margin="1,1,1,1" defaultItem="ui://nk9ejx23au3n6q" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <group id="n122_r6vk" name="n122" xy="1,23" size="196,451"/>
+    <component id="n25" name="publish" src="xualm" fileName="Button/Button.xml" pkg="nk9ejx23" xy="304,486" size="80,25">
+      <Button title="发布"/>
+    </component>
+    <component id="n53" name="publishDesc" src="xualm" fileName="Button/Button.xml" pkg="nk9ejx23" xy="150,486" size="140,25">
+      <Button title="仅发布定义"/>
+    </component>
+    <component id="n35" name="publishAll" src="xualm" fileName="Button/Button.xml" pkg="nk9ejx23" xy="21,486" size="115,25">
+      <Button title="全部发布"/>
+    </component>
+    <component id="n131_x392" name="packageSettings" src="x3927iuev" fileName="dialogs/PublishPackageSettings.xml" xy="200,53" size="538,416">
+      <gearDisplay controller="global" pages="0"/>
+    </component>
+    <component id="n126_x392" name="globalSettings" src="x3927iueu" fileName="dialogs/PublishGlobalSettings.xml" xy="200,53" size="538,416">
+      <gearDisplay controller="global" pages="1"/>
+    </component>
+    <image id="n119_vbrg" name="n119" src="au3n39" fileName="HzSeperator.png" pkg="nk9ejx23" xy="0,475" size="749,1"/>
+    <component id="n4" name="close" src="xualm" fileName="Button/Button.xml" pkg="nk9ejx23" xy="649,486" size="80,25">
+      <Button title="关闭"/>
+    </component>
+    <image id="n132_dp9p" name="n132" src="au3n38" fileName="VtSeperator.png" pkg="nk9ejx23" xy="196,23" size="1,452"/>
+    <image id="n138_sym6" name="n138" src="au3n39" fileName="HzSeperator.png" pkg="nk9ejx23" xy="197,52" size="550,1"/>
+    <component id="n134_sym6" name="n134" src="au3n6i" fileName="Tab/TabButton_as.xml" pkg="nk9ejx23" xy="196,25" size="51,28" group="n137_sym6">
+      <Button checked="true" title="包设置" controller="global" page="0"/>
+    </component>
+    <component id="n135_sym6" name="n135" src="au3n6i" fileName="Tab/TabButton_as.xml" pkg="nk9ejx23" xy="248,25" size="63,28" group="n137_sym6">
+      <Button title="全局设置" controller="global" page="1"/>
+    </component>
+    <group id="n137_sym6" name="n137" xy="196,25" size="115,28" advanced="true" layout="hz" colGap="1" excludeInvisibles="true"/>
+  </displayList>
+</component>

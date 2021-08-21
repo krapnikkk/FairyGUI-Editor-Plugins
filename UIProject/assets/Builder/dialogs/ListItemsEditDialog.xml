@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="688,500">
+  <displayList>
+    <component id="n0" name="frame" src="gcza1l" fileName="Window/WindowFrame.xml" pkg="nk9ejx23" xy="0,0" size="688,500">
+      <relation target="" sidePair="width-width,height-height"/>
+      <Label title="编辑列表"/>
+    </component>
+    <graph id="n20" name="n20" xy="10,58" size="667,395" group="n35" type="rect" lineColor="#ff292828" fillColor="#003f3f3f"/>
+    <list id="n19" name="list" xy="11,78" size="665,374" group="n35" overflow="scroll" scrollBar="visible" margin="1,1,1,1" defaultItem="ui://2pshu6oiau3n56">
+      <item/>
+      <item/>
+    </list>
+    <image id="n69_mwte" name="n69" src="kwng7g" fileName="List/images/GridHeader.png" pkg="nk9ejx23" xy="10,58" size="666,20" group="n75_mwte"/>
+    <image id="n70_mwte" name="n70" src="au3n38" fileName="VtSeperator.png" pkg="nk9ejx23" xy="206,59" size="1,19" group="n75_mwte"/>
+    <image id="n71_mwte" name="n71" src="au3n38" fileName="VtSeperator.png" pkg="nk9ejx23" xy="337,59" size="1,19" group="n75_mwte"/>
+    <text id="n72_mwte" name="n72" xy="209,60" size="127,18" group="n75_mwte" fontSize="12" color="#bdbdbd" align="center" autoSize="none" text="标题"/>
+    <text id="n73_mwte" name="n73" xy="40,60" size="163,18" group="n75_mwte" fontSize="12" color="#bdbdbd" align="center" autoSize="none" text="资源"/>
+    <text id="n74_mwte" name="n74" xy="341,60" size="169,18" group="n75_mwte" fontSize="12" color="#bdbdbd" align="center" autoSize="none" text="图标"/>
+    <image id="n76_mwte" name="n76" src="au3n38" fileName="VtSeperator.png" pkg="nk9ejx23" xy="512,58" size="1,19" group="n75_mwte"/>
+    <text id="n77_mwte" name="n77" xy="515,60" size="100,18" group="n75_mwte" fontSize="12" color="#bdbdbd" align="center" autoSize="none" text="名称"/>
+    <image id="n80_duy1" name="n80" src="au3n38" fileName="VtSeperator.png" pkg="nk9ejx23" xy="618,59" size="1,19" group="n75_mwte"/>
+    <text id="n81_duy1" name="n81" xy="620,60" size="40,18" group="n83_duy1" fontSize="12" color="#bdbdbd" align="center" autoSize="none" text="层级"/>
+    <image id="n82_duy1" name="n82" src="au3n38" fileName="VtSeperator.png" pkg="nk9ejx23" xy="662,59" size="1,19" group="n83_duy1"/>
+    <group id="n83_duy1" name="indentColumn" xy="620,59" size="43,19" group="n75_mwte" advanced="true"/>
+    <group id="n75_mwte" name="n75" xy="10,58" size="666,20" group="n35"/>
+    <group id="n35" name="n35" xy="10,58" size="667,395"/>
+    <component id="n13" name="save" src="xualm" fileName="Button/Button.xml" pkg="nk9ejx23" xy="237,463" size="64,25" group="n39">
+      <Button title="保存"/>
+    </component>
+    <component id="n14" name="cancel" src="xualm" fileName="Button/Button.xml" pkg="nk9ejx23" xy="395,463" size="58,25" group="n39">
+      <Button title="取消"/>
+    </component>
+    <component id="n53_uytn" name="apply" src="xualm" fileName="Button/Button.xml" pkg="nk9ejx23" xy="317,463" size="64,25" group="n39">
+      <Button title="应用"/>
+    </component>
+    <group id="n39" name="n39" xy="237,463" size="216,25"/>
+    <component id="n40_q4xf" name="clearOnPublish" src="dp4f7u" fileName="Button/EmCheckbox_as.xml" pkg="nk9ejx23" xy="194,33" size="108,19">
+      <Button title="发布时自动清空"/>
+    </component>
+    <component id="n64_nhha" name="addItem" src="au3n4b" fileName="Button/IconButton.xml" pkg="nk9ejx23" xy="12,29" size="22,22" group="n68_nhha">
+      <Button icon="ui://2pshu6oie4cx7iue7"/>
+    </component>
+    <component id="n84_f5gz" name="insertItem" src="au3n4b" fileName="Button/IconButton.xml" pkg="nk9ejx23" xy="40,29" size="22,22" group="n68_nhha">
+      <Button icon="ui://2pshu6oioskoixicub"/>
+    </component>
+    <component id="n65_nhha" name="removeItem" src="au3n4b" fileName="Button/IconButton.xml" pkg="nk9ejx23" xy="68,29" size="22,22" group="n68_nhha">
+      <Button icon="ui://2pshu6oie4cx7iuea"/>
+    </component>
+    <component id="n66_nhha" name="moveUp" src="au3n4b" fileName="Button/IconButton.xml" pkg="nk9ejx23" xy="96,29" size="22,22" group="n68_nhha">
+      <Button icon="ui://2pshu6oiu3n8iud6"/>
+    </component>
+    <component id="n67_nhha" name="moveDown" src="au3n4b" fileName="Button/IconButton.xml" pkg="nk9ejx23" xy="124,29" size="22,22" group="n68_nhha">
+      <Button icon="ui://2pshu6oiu3n8iud5"/>
+    </component>
+    <group id="n68_nhha" name="n68" xy="12,29" size="134,22"/>
+    <text id="n85_ijwl" name="n85" xy="503,32" size="166,18" fontSize="12" color="#bdbdbd" text="更多信息可以在检查器设置-->">
+      <relation target="" sidePair="right-right"/>
+    </text>
+  </displayList>
+</component>

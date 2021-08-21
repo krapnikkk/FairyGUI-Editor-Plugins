@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1200,800" bgColorEnabled="true" bgColor="#383838">
+  <controller name="menu" pages="0,,1," selected="0"/>
+  <controller name="start" pages="0,,1," selected="0"/>
+  <displayList>
+    <component id="n43" name="toolbar" src="cgoaixicvq" fileName="Toolbar.xml" xy="0,23">
+      <gearDisplay controller="start" pages="0"/>
+      <gearXY controller="menu" pages="0,1" values="0,23|2,2"/>
+    </component>
+    <graph id="n115_r5uk" name="holder" xy="4,54" size="1192,724">
+      <relation target="" sidePair="width-width,height-height"/>
+      <relation target="n43" sidePair="topext-bottom"/>
+    </graph>
+    <component id="n128_et85" name="startScene" src="et857iufd" fileName="StartScene.xml" xy="0,20" size="1200,759">
+      <gearDisplay controller="start" pages="1"/>
+      <gearXY controller="menu" pages="1" values="0,0" default="0,20"/>
+      <gearSize controller="menu" pages="1" values="1200,800,1,1" default="1200,759,1,1"/>
+      <relation target="" sidePair="width-width,height-height"/>
+    </component>
+    <component id="n136_u2dk" name="logItem" src="ngyqa7iufw" fileName="ConsoleView_item.xml" xy="5,779" size="652,23" visible="false" controller="bg,0,type,0">
+      <relation target="" sidePair="width-width%,top-bottom"/>
+    </component>
+    <component id="n100_ah2b" name="newVersionPrompt" src="ah2biuaa" fileName="NewVersionPrompt.xml" xy="253,-36" visible="false">
+      <relation target="" sidePair="center-center"/>
+    </component>
+    <component id="n10" name="menuBar" src="au3ng" fileName="MenuBar.xml" xy="0,0" size="1200,22">
+      <gearDisplay controller="menu" pages="0"/>
+      <relation target="" sidePair="width-width"/>
+    </component>
+    <component id="n138_cgoa" name="userInfo" src="gcfvixicum" fileName="UserInfo.xml" xy="1160,24" controller="c1,0">
+      <gearXY controller="menu" pages="1" values="1160,5" default="1160,24"/>
+      <relation target="" sidePair="right-right"/>
+    </component>
+  </displayList>
+  <transition name="newVersionShow">
+    <item time="0" type="Visible" target="n100_ah2b" value="true"/>
+    <item time="0" type="XY" target="n100_ah2b" tween="true" startValue="-,-34" endValue="-,21" duration="12" ease="Linear"/>
+  </transition>
+  <transition name="newVersionHide">
+    <item time="0" type="XY" target="n100_ah2b" tween="true" startValue="-,19" endValue="-,-34" duration="12" ease="Linear"/>
+    <item time="12" type="Visible" target="n100_ah2b" value="false"/>
+  </transition>
+  <transition name="t2" autoPlay="true" autoPlayRepeat="-1"/>
+</component>

@@ -1,0 +1,11 @@
+{
+  "name": "com.fairygui.plugin.CSSAttributer",
+  "displayName": "CSS属性转换器",
+  "description": "一键将CSS代码转换为Fairygui元件对应的属性。",
+  "version": "0.0.2",
+  "author": {
+    "name": "krapnik"
+  },
+  "icon": "icon.png",
+  "main": "main.js"
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="424,546" bgColorEnabled="true" bgColor="#383838">
+  <displayList>
+    <list id="n19" name="list" xy="0,35" size="424,510" overflow="scroll" scrollBar="visible" margin="1,1,1,1" defaultItem="ui://2pshu6oiocfaiu8s" autoClearItems="true">
+      <relation target="" sidePair="width-width,height-height"/>
+      <item/>
+      <item/>
+    </list>
+    <graph id="n52_mvnb" name="n52" xy="0,34" size="424,1" type="rect" lineColor="#ff292828" fillColor="#00383838">
+      <relation target="" sidePair="width-width"/>
+    </graph>
+    <component id="n61_exa7" name="reload" src="gcza2i" fileName="Button/FlatIconButton.xml" pkg="nk9ejx23" xy="397,6" tooltips="重新载入全部插件">
+      <relation target="" sidePair="right-right"/>
+      <Button icon="ui://2pshu6oiqilr7iuf3"/>
+    </component>
+    <component id="n53_mvnb" name="pluginFolder" src="gcza2i" fileName="Button/FlatIconButton.xml" pkg="nk9ejx23" xy="5,6" tooltips="打开插件文件夹">
+      <Button icon="ui://2pshu6oimvnbixicvd"/>
+    </component>
+    <component id="n60_exa7" name="newPlugin" src="gcza2i" fileName="Button/FlatIconButton.xml" pkg="nk9ejx23" xy="34,6" tooltips="新建插件">
+      <Button icon="ui://2pshu6oie4cx7iue7"/>
+    </component>
+  </displayList>
+</component>

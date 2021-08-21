@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="587,465">
+  <controller name="c1" pages="0,,1,,2," selected="0"/>
+  <displayList>
+    <component id="n0" name="frame" src="gcza1l" fileName="Window/WindowFrame.xml" pkg="nk9ejx23" xy="0,0" size="587,465">
+      <relation target="" sidePair="width-width,height-height"/>
+      <Label title="首选项"/>
+    </component>
+    <graph id="n42_g9yd" name="n42" xy="1,23" size="142,394" group="n44_g9yd" type="rect" lineSize="0" lineColor="#ff292828" fillColor="#ff3f3f3f"/>
+    <list id="n43_g9yd" name="tab" xy="2,24" size="140,392" group="n44_g9yd" margin="0,1,0,1" lineGap="4" defaultItem="ui://nk9ejx23au3n4s" selectionController="c1">
+      <item title="通用"/>
+      <item title="热键设置"/>
+      <item title="外部工具"/>
+    </list>
+    <group id="n44_g9yd" name="n44" xy="1,23" size="142,394"/>
+    <text id="n39_htim" name="n39" xy="154,61" size="137,19" group="n45_g9yd" fontSize="12" color="#bdbdbd" autoSize="none" text="版本更新"/>
+    <component id="n40_htim" name="checkNewVersion" src="gcza18" fileName="ComboBox/ComboBox.xml" pkg="nk9ejx23" xy="293,60" size="139,20" group="n45_g9yd">
+      <ComboBox visibleItemCount="10"/>
+    </component>
+    <text id="n37" name="n37" xy="154,32" size="137,19" group="n45_g9yd" fontSize="12" color="#bdbdbd" autoSize="none" text="界面语言"/>
+    <component id="n38" name="language" src="gcza18" fileName="ComboBox/ComboBox.xml" pkg="nk9ejx23" xy="293,31" size="139,20" group="n45_g9yd">
+      <ComboBox visibleItemCount="10"/>
+    </component>
+    <text id="n63_q3bc" name="n63" xy="154,91" size="137,19" group="n45_g9yd" fontSize="12" color="#bdbdbd" autoSize="none" text="发布按钮"/>
+    <component id="n64_q3bc" name="publishAction" src="gcza18" fileName="ComboBox/ComboBox.xml" pkg="nk9ejx23" xy="293,90" size="139,20" group="n45_g9yd">
+      <ComboBox title="发布当前包" visibleItemCount="10">
+        <item title="发布当前包" value="active"/>
+        <item title="发布所有修改过的包" value="modified"/>
+        <item title="发布所有包" value="all"/>
+      </ComboBox>
+    </component>
+    <text id="n65_p3dt" name="n65" xy="154,121" size="137,19" group="n45_g9yd" fontSize="12" color="#bdbdbd" autoSize="none" text="发布前自动保存"/>
+    <component id="n66_p3dt" name="saveBeforePublish" src="gcza18" fileName="ComboBox/ComboBox.xml" pkg="nk9ejx23" xy="293,120" size="139,20" group="n45_g9yd">
+      <ComboBox title="否" visibleItemCount="10">
+        <item title="否"/>
+        <item title="是"/>
+      </ComboBox>
+    </component>
+    <text id="n71_oqea" name="n71" xy="154,150" size="137,19" group="n45_g9yd" fontSize="12" color="#bdbdbd" autoSize="none" text="界面字体"/>
+    <component id="n72_oqea" name="editorFont" src="gcza1s" fileName="Input/TextInput.xml" pkg="nk9ejx23" xy="293,149" size="275,20" group="n45_g9yd"/>
+    <group id="n45_g9yd" name="n45" xy="154,31" size="414,138" advanced="true">
+      <gearDisplay controller="c1" pages="0"/>
+    </group>
+    <graph id="n47_g9yd" name="n47" xy="151,28" size="427,343" group="n52_v3j1" type="rect" lineColor="#ff292828" fillColor="#003f3f3f"/>
+    <list id="n48_g9yd" name="functionList" xy="152,49" size="425,321" group="n52_v3j1" overflow="scroll" scrollBar="visible" margin="1,1,1,1" defaultItem="ui://2pshu6oig9ydiubg" autoClearItems="true">
+      <item/>
+      <item/>
+    </list>
+    <component id="n51_v3j1" name="resetHotkeys" src="xualm" fileName="Button/Button.xml" pkg="nk9ejx23" xy="441,378" size="126,25" group="n52_v3j1">
+      <Button title="恢复默认设置"/>
+    </component>
+    <image id="n57_mwte" name="n57" src="kwng7g" fileName="List/images/GridHeader.png" pkg="nk9ejx23" xy="150,28" size="428,21" group="n61_mwte"/>
+    <image id="n58_mwte" name="n58" src="au3n38" fileName="VtSeperator.png" pkg="nk9ejx23" xy="429,29" size="1,19" group="n61_mwte"/>
+    <text id="n59_mwte" name="n59" xy="151,30" size="273,19" group="n61_mwte" fontSize="12" color="#bdbdbd" align="center" autoSize="none" text="功能"/>
+    <text id="n60_mwte" name="n60" xy="431,30" size="145,19" group="n61_mwte" fontSize="12" color="#bdbdbd" align="center" autoSize="none" text="热键"/>
+    <group id="n61_mwte" name="n61" xy="150,28" size="428,21" group="n52_v3j1"/>
+    <group id="n52_v3j1" name="n52" xy="150,28" size="428,375" advanced="true">
+      <gearDisplay controller="c1" pages="1"/>
+    </group>
+    <image id="n55_dp9p" name="n55" src="au3n38" fileName="VtSeperator.png" pkg="nk9ejx23" xy="144,23" size="1,395"/>
+    <image id="n56_dp9p" name="n56" src="au3n39" fileName="HzSeperator.png" pkg="nk9ejx23" xy="1,418" size="584,1">
+      <relation target="" sidePair="width-width"/>
+    </image>
+    <component id="n15" name="cancel" src="xualm" fileName="Button/Button.xml" pkg="nk9ejx23" xy="472,430">
+      <Button title="关闭"/>
+    </component>
+    <text id="n67_h76e" name="n67" xy="154,32" size="93,19" group="n70_mgwh" fontSize="12" color="#bdbdbd" autoSize="none" singleLine="true" text="PNG压缩工具"/>
+    <component id="n68_h76e" name="pngTool" src="gcza1s" fileName="Input/TextInput.xml" pkg="nk9ejx23" xy="249,31" size="284,20" group="n70_mgwh"/>
+    <component id="n69_h76e" name="browseTool" src="xualm" fileName="Button/Button.xml" pkg="nk9ejx23" xy="541,28" size="35,25" group="n70_mgwh">
+      <Button title=".."/>
+    </component>
+    <group id="n70_mgwh" name="n70" xy="154,28" size="422,25" advanced="true">
+      <gearDisplay controller="c1" pages="2"/>
+    </group>
+  </displayList>
+</component>

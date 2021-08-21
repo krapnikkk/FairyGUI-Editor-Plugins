@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="600,500">
+  <controller name="c1" pages="0,基本,1,默认值,2,快捷菜单,4,适配,7,分支,6,多国语言,5,自定义属性" selected="3"/>
+  <displayList>
+    <component id="n0" name="frame" src="gcza1l" fileName="Window/WindowFrame.xml" pkg="nk9ejx23" xy="0,0" size="600,500">
+      <relation target="" sidePair="width-width,height-height"/>
+      <Label title="项目设置"/>
+    </component>
+    <image id="n53_vbrg" name="n53" src="au3n38" fileName="VtSeperator.png" pkg="nk9ejx23" xy="144,23" size="1,429"/>
+    <image id="n55_vbrg" name="n55" src="au3n39" fileName="HzSeperator.png" pkg="nk9ejx23" xy="1,452" size="596,1">
+      <relation target="" sidePair="width-width"/>
+    </image>
+    <graph id="n51_vbrg" name="n51" xy="1,23" size="142,429" group="n87_g9yd" type="rect" lineSize="0" lineColor="#ff151415" fillColor="#ff3d3d3d"/>
+    <list id="n52_vbrg" name="tab" xy="1,23" size="142,429" group="n87_g9yd" margin="1,1,1,1" defaultItem="ui://nk9ejx23au3n4s" selectionController="c1">
+      <item title="基本"/>
+      <item title="默认值"/>
+      <item title="快捷菜单"/>
+      <item title="适配测试"/>
+      <item title="项目分支"/>
+      <item title="多国语言"/>
+      <item title="自定义属性"/>
+    </list>
+    <group id="n87_g9yd" name="catalog" xy="1,23" size="142,429"/>
+    <component id="n14" name="ok" src="xualm" fileName="Button/Button.xml" pkg="nk9ejx23" xy="156,462" size="76,25" group="n65_vbrg">
+      <Button title="确定"/>
+    </component>
+    <component id="n15" name="cancel" src="xualm" fileName="Button/Button.xml" pkg="nk9ejx23" xy="368,462" size="76,25" group="n65_vbrg">
+      <Button title="取消"/>
+    </component>
+    <component id="n82_q6js" name="apply" src="xualm" fileName="Button/Button.xml" pkg="nk9ejx23" xy="262,462" size="76,25" group="n65_vbrg">
+      <Button title="应用"/>
+    </component>
+    <group id="n65_vbrg" name="buttons" xy="156,462" size="288,25"/>
+    <component id="n1" name="basic" src="i06g1nry31j" fileName="dialogs/ProjectSettings_basic.xml" xy="150,26">
+      <gearDisplay controller="c1" pages="0"/>
+    </component>
+    <component id="n2" name="common" src="i06g1nry31k" fileName="dialogs/ProjectSettings_common.xml" xy="150,26">
+      <gearDisplay controller="c1" pages="1"/>
+    </component>
+    <component id="n25" name="quick" src="wqe77iufo" fileName="dialogs/ProjectSettings_quick.xml" xy="150,26">
+      <gearDisplay controller="c1" pages="2"/>
+    </component>
+    <component id="n111_ntzr" name="i18n" src="i06g1nry31o" fileName="dialogs/ProjectSettings_i18n.xml" xy="150,26">
+      <gearDisplay controller="c1" pages="6"/>
+    </component>
+    <component id="n43" name="customprops" src="i06g1nry31p" fileName="dialogs/ProjectSettings_customprops.xml" xy="150,26">
+      <gearDisplay controller="c1" pages="5"/>
+    </component>
+    <component id="n69_q6js" name="adaptation" src="i06g1nry31m" fileName="dialogs/ProjectSettings_adaptation.xml" xy="150,26">
+      <gearDisplay controller="c1" pages="4"/>
+    </component>
+    <component id="n132_wxof" name="branch" src="i06g1nry31n" fileName="dialogs/ProjectSettings_branch.xml" xy="150,26">
+      <gearDisplay controller="c1" pages="7"/>
+    </component>
+  </displayList>
+</component>

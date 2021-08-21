@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="170,21" extention="Label">
+  <controller name="c1" pages="0,,1," selected="0"/>
+  <controller name="hideClear" exported="true" pages="0,,1," selected="0"/>
+  <displayList>
+    <image id="n9" name="n9" src="gcza1r" fileName="Input/input_bg.png" pkg="nk9ejx23" xy="0,0" size="170,21">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <loader id="n10" name="icon" xy="3,3" size="16,16" align="center" vAlign="middle" fill="scale" shrinkOnly="true">
+      <gearDisplay controller="c1" pages="0"/>
+    </loader>
+    <text id="n11" name="title" xy="21,1" size="125,19" fontSize="12" color="#d19036" vAlign="middle" autoSize="none" singleLine="true" text="">
+      <gearDisplay controller="c1" pages="0"/>
+      <relation target="" sidePair="width-width"/>
+    </text>
+    <text id="n16_gmju" name="n16" xy="3,1" size="25,19" fontSize="12" color="#959595" text="(无)">
+      <gearDisplay controller="c1" pages="1"/>
+    </text>
+    <component id="n17_pxtp" name="clear" src="gcza2i" fileName="Button/FlatIconButton.xml" pkg="nk9ejx23" xy="149,1" size="20,20" tooltips="删除关联">
+      <gearDisplay controller="c1" pages="0"/>
+      <gearDisplay2 controller="hideClear" pages="0" condition="0"/>
+      <relation target="" sidePair="right-right"/>
+      <Button icon="ui://2pshu6oipsdnu6r"/>
+    </component>
+  </displayList>
+</component>

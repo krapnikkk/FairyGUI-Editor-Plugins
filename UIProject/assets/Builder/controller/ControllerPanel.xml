@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="361,32" overflow="hidden" bgColorEnabled="true" bgColor="#383838">
+  <displayList>
+    <list id="n1" name="list" xy="3,4" size="354,25" layout="flow_hz" selectionMode="none" lineGap="2" defaultItem="ui://2pshu6oiau3n5h">
+      <relation target="" sidePair="width-width"/>
+      <item/>
+      <item url="ui://2pshu6oiau3n3g"/>
+      <item/>
+      <item url="ui://2pshu6oiau3n3g"/>
+      <item url="ui://2pshu6oiaall7iuez" title="增加控制器"/>
+    </list>
+    <graph id="n2" name="bottom" xy="0,31" size="362,1" type="rect" lineSize="0" lineColor="#ff292828" fillColor="#ff292828">
+      <relation target="" sidePair="width-width,bottom-bottom"/>
+    </graph>
+  </displayList>
+  <relation target="n1" sidePair="height-height"/>
+</component>

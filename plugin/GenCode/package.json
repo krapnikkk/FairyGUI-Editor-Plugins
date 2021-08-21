@@ -1,0 +1,11 @@
+{
+  "name": "com.fairygui.plugin.GenCode",
+  "displayName": "代码发布扩展",
+  "description": "发布代码时，Main组件自动绑定上级目录同名脚本",
+  "version": "0.0.2",
+  "author": {
+    "name": "krapnik"
+  },
+  "icon": "icon.png",
+  "main": "main.js"
+}
