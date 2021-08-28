@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "module": "es6",
+        "target": "es6",
+        "lib": [
+            "es5",
+            "es2015.promise"
+        ],
+        "noEmitHelpers": true,
+        "sourceMap": false,
+        "noImplicitAny": false,
+        "skipLibCheck": true,
+        "moduleResolution": "node",
+        "strict": true,
+        "jsx": "preserve",
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "strictNullChecks": false,
+        "strictPropertyInitialization": false,
+        "outDir": "./lib",
+        "forceConsistentCasingInFileNames": true,
+    },
+    "exclude": [
+        "node_modules",
+        "libs"
+    ]
+}

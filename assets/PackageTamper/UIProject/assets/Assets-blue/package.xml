@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="6exut6s4$0">
+  <resources>
+    <image id="atsg0" name="bg.png" path="/" exported="true"/>
+  </resources>
+  <publish name="Asset" path="../bin/res/fgui/blue" packageCount="1"/>
+</packageDescription>

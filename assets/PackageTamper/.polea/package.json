@@ -1,0 +1,9 @@
+{
+  "name": "polea",
+  "version": "0.0.5",
+  "description": "项目快捷启动命令",
+  "scripts": {
+    "build": "polea compile",
+    "publish": "polea publish"
+  }
+}

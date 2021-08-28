@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="750,826">
+  <displayList>
+    <image id="n0_xka6" name="bg" src="atsg0" fileName="bg.png" pkg="6exut6s4" xy="12,0">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </image>
+    <component id="n2_p1hc" name="btn_change" src="p1hc2" fileName="btn_change.xml" xy="279,718" size="191,50">
+      <relation target="" sidePair="center-center,middle-middle"/>
+      <Button title="切换主题" titleFontSize="30"/>
+    </component>
+  </displayList>
+</component>

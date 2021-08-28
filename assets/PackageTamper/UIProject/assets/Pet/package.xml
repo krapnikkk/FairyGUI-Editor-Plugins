@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="9bthtvyc">
+  <resources>
+    <component id="tk6o0" name="Main.xml" path="/" exported="true"/>
+    <component id="p1hc2" name="btn_change.xml" path="/"/>
+  </resources>
+  <publish name=""/>
+</packageDescription>
