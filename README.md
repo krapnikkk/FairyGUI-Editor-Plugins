@@ -6,7 +6,11 @@
 
 ### 附主题换肤方案：
 
-参考项目[PackageTamper](./assets/PackageTamper),内含UI工程以及Laya项目工程,[点击预览](/assets/PackageTamper/release/)
+参考项目[PackageTamper](./assets/PackageTamper)
+
+内含UI工程以及Laya项目工程
+
+[点击预览效果](/assets/PackageTamper/release/web/)
 
 UI工程简单说明
 - Pet [主包,里面不含图片资源,图片资源采用跨包引用Assets]
@@ -14,7 +18,7 @@ UI工程简单说明
 - Assets-blue [主题图集包,通过Assets复制而来,替换对应的主题图片,为了被发布和编辑器读取,需要手动在pkgId后面增加标识符$+数字,发布时将会被插件修正成Assets的pkgId,同时记得调整发布路径地址和发布文件名和Assets一致]
 - Assets-yellow [同上]
 
-代码调整,参考Laya工程
+代码调整,参考[Laya工程](./assets/PackageTamper/src/App.ts)
 
 
 ## CSS样式应用插件[CSSAttributer]
