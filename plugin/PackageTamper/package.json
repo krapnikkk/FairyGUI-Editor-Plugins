@@ -1,0 +1,11 @@
+{
+  "name": "com.fairygui.plugin.PackageTamper",
+  "displayName": "包名窜改",
+  "description": "发布时，根据pkgId中的标识符$，窜改包括$标识符后面的字符，达到包名修正的效果，exp:[6exut6s4$1]=>[6exut6s4]",
+  "version": "0.0.2",
+  "author": {
+    "name": "krapnik"
+  },
+  "icon": "icon.png",
+  "main": "main.js"
+}

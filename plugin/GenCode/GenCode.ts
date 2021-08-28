@@ -18,8 +18,6 @@ function genCode(handler: FairyEditor.PublishHandler, isPuerts = true) {
     //CollectClasses(stripeMemeber, stripeClass, fguiNamespace)
     let classes = handler.CollectClasses(settings.ignoreNoname, settings.ignoreNoname, ns);
     handler.SetupCodeFolder(exportCodePath, "ts"); //check if target folder exists, and delete old files
-    let pkg = handler.GetItemDesc(null);
-    console.log(pkg);
     let getMemberByName = settings.getMemberByName;
 
     let classCnt = classes.Count;
