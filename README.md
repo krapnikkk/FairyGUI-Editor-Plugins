@@ -10,7 +10,7 @@
 
 内含UI工程以及Laya项目工程
 
-[点击预览效果](/assets/PackageTamper/release/web/)
+[点击预览效果](http://blog.krapnik.cn/FairyGUI-Editor-Plugins/assets/PackageTamper/bin/index.html)
 
 UI工程简单说明
 - Pet [主包,里面不含图片资源,图片资源采用跨包引用Assets]
