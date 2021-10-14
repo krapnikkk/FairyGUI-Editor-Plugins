@@ -5,9 +5,8 @@ App.pluginManager.LoadUIPackage(App.pluginManager.basePath + "/" + eval("__dirna
 let dialog = FairyGUI.UIPackage.CreateObject('ImageCropper', "Main").asCom;
 let imageCropperWindow = new FairyGUI.Window();
 imageCropperWindow.contentPane = dialog;
-App.groot.AddChild(imageCropperWindow);
 imageCropperWindow.Center();
-imageCropperWindow.visible = false;
+imageCropperWindow.Hide();
 let imageSource = dialog.GetChild("imageInput").asLabel;
 let rowInput = dialog.GetChild("rowInput").asLabel;
 let colInput = dialog.GetChild("colInput").asLabel;
@@ -16,7 +15,7 @@ let tips = dialog.GetChild("tips").asTextField;
 
 dialog.GetChild("close").onClick.Add(() => {
     tips.text = "";
-    imageCropperWindow.visible = false;
+    imageCropperWindow.Hide();
 });
 dialog.GetChild("crop").onClick.Add(() => {
     if (rowInput.title == "0" || colInput.title == "0") {
@@ -65,6 +64,6 @@ const crop = (image: FairyEditor.FPackageItem) => {
 
 let toolMenu = App.menu.GetSubMenu("tool");
 toolMenu.AddItem("图片裁剪", "imageCopper", () => {
-    imageCropperWindow.visible = true;
+    imageCropperWindow.Show();
 })
 
