@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="360,240" bgColorEnabled="true" bgColor="#383838">
+  <displayList>
+    <component id="n20_jmrf" name="frame" src="gcza1l" fileName="Window/WindowFrame.xml" pkg="nk9ejx23" xy="0,0" size="360,240">
+      <relation target="" sidePair="width-width,height-height"/>
+      <Label title="图片裁剪"/>
+    </component>
+    <text id="n0_o42c" name="image_source" xy="64,47" size="52,19" fontSize="12" color="#bdbdbd" text="图片资源"/>
+    <component id="n1_o42c" name="imageInput" src="au3n6j" fileName="Input/ResourceInput.xml" pkg="nk9ejx23" xy="132,46" size="173,20"/>
+    <text id="n11_o42c" name="n11" xy="48,73" size="80,19" fontSize="12" color="#bdbdbd" align="center" autoSize="none" text="行"/>
+    <text id="n12_o42c" name="n12" xy="48,99" size="80,19" fontSize="12" color="#bdbdbd" align="center" autoSize="none" text="列"/>
+    <text id="n13_o42c" name="n13" xy="48,125" size="80,19" fontSize="12" color="#bdbdbd" align="center" autoSize="none" text="延展"/>
+    <component id="n14_o42c" name="rowInput" src="au3n69" fileName="Input/NumericInput.xml" pkg="nk9ejx23" xy="132,72" size="40,20">
+      <Label title="2"/>
+    </component>
+    <component id="n15_o42c" name="colInput" src="au3n69" fileName="Input/NumericInput.xml" pkg="nk9ejx23" xy="132,98" size="40,20">
+      <Label title="2"/>
+    </component>
+    <component id="n16_o42c" name="spanInput" src="au3n69" fileName="Input/NumericInput.xml" pkg="nk9ejx23" xy="132,124" size="40,20">
+      <Label title="2"/>
+    </component>
+    <component id="n17_o42c" name="n17" src="o42c1" fileName="InfoButton.xml" xy="192,74" tooltips="将图片按照输入的行数进行裁剪。"/>
+    <component id="n18_o42c" name="n18" src="o42c1" fileName="InfoButton.xml" xy="192,100" tooltips="将图片按照输入的列数进行裁剪。"/>
+    <component id="n19_o42c" name="n19" src="o42c1" fileName="InfoButton.xml" xy="192,126" tooltips="将图片裁剪的时候，为裁剪出来的每张图片以中间为基准延展指定像素（防止图片拼接时候出现缝隙）。"/>
+    <component id="n21_jmrf" name="crop" src="xualm" fileName="Button/Button.xml" pkg="nk9ejx23" xy="68,187">
+      <Button title="确定"/>
+    </component>
+    <component id="n22_jmrf" name="close" src="xualm" fileName="Button/Button.xml" pkg="nk9ejx23" xy="202,186">
+      <Button title="关闭"/>
+    </component>
+    <text id="n44_7qrg" name="tips" xy="175,158" size="10,19" fontSize="12" color="#ff0000" align="center" vAlign="middle" text="">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </text>
+  </displayList>
+</component>

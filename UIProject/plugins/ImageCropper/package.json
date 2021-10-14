@@ -1,0 +1,11 @@
+{
+	"name": "com.fairygui.plugin.imagecopper",
+	"displayName": "图片裁剪",
+	"description": "一个将大图等比裁剪为多个小图的插件，作用是在某种场合，发布出来的纹理集宽高会更优。裁剪出来的每张图片以中间为基准延展指定像素（防止图片拼接时候出现缝隙）。",
+	"version": "0.0.1",
+	"author": {
+		"name": "krapnik"
+	},
+	"icon": "icon.png",
+	"main": "main.js"
+}

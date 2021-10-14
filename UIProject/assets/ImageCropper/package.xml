@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="a4fbwi48">
+  <resources>
+    <component id="o42c0" name="Main.xml" path="/" exported="true"/>
+    <component id="o42c1" name="InfoButton.xml" path="/"/>
+    <image id="7qrgw" name="info.png" path="/" qualityOption="source"/>
+  </resources>
+  <publish name=""/>
+</packageDescription>
