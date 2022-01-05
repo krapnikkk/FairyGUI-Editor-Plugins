@@ -1,0 +1,11 @@
+{
+	"name": "com.fairygui.plugin.customAttributer",
+	"displayName": "customAttributer",
+	"description": "通用自定义数据配置插件",
+	"version": "0.0.1",
+	"author": {
+		"name": "krapnik"
+	},
+	"icon": "icon.png",
+	"main": "main.js"
+}

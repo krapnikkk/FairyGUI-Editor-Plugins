@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="248,20" extention="Button">
+  <displayList>
+    <text id="n1_edka" name="title" xy="0,1" size="71,19" fontSize="12" color="#bdbdbd" align="center" autoSize="none" text="name"/>
+    <component id="n4_wj7r" name="component" src="gcza2c" fileName="Slider/Slider_HZ.xml" pkg="nk9ejx23" xy="77,2" size="158,16">
+      <Slider value="50" max="100"/>
+    </component>
+  </displayList>
+  <Button/>
+</component>

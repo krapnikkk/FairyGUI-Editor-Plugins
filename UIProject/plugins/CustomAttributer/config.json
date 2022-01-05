@@ -1,0 +1,30 @@
+{
+    "remote": "",
+    "parent": false,
+    "pattern": "*",
+    "mode": 2,
+    "components": [
+        {
+            "type": "Textarea",
+            "name":"属性一",
+            "id": 1001,
+            "defaultVal":"1"
+        },
+        {
+            "type": "ComboBox",
+            "id": 1002,
+            "data":{
+                "items":["样式一","样式二","样式三"],
+                "values":[1,2,3]
+            }
+        },
+        {
+            "type": "ColorInput",
+            "id": 1003
+        },
+        {
+            "type": "Slider",
+            "id": 1003
+        }
+    ]
+}

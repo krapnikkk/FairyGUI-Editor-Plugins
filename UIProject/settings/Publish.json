@@ -1,5 +1,5 @@
 {
-  "path": "../UnityProject/Assets/Resources/UI",
+  "path": "../assets/UI",
   "branchPath": "",
   "fileExtension": "bytes",
   "packageCount": 1,
@@ -19,6 +19,7 @@
   },
   "includeHighResolution": 5,
   "branchProcessing": 0,
+  "seperatedAtlasForBranch": false,
   "atlasSetting": {
     "maxSize": 2048,
     "paging": true,

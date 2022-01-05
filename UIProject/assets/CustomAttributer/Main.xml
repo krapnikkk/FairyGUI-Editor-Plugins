@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="353,150" bgColorEnabled="true" bgColor="#383838">
+  <controller name="op" pages="0,write,1,read" selected="0"/>
+  <displayList>
+    <list id="n7_wj7r" name="list_components" xy="12,9" size="332,82" overflow="scroll" scrollBarFlags="4" defaultItem="ui://1g71c9u2wj7rc">
+      <item/>
+    </list>
+    <component id="n5_nmoy" name="btn_save" src="xualm" fileName="Button/Button.xml" pkg="nk9ejx23" xy="154,102" size="80,20" group="n12_f54e">
+      <Button title="更新配置" controller="op" page="0"/>
+    </component>
+    <component id="n8_wj7r" name="btn_reset" src="xualm" fileName="Button/Button.xml" pkg="nk9ejx23" xy="263,102" size="80,20" group="n12_f54e">
+      <Button title="重置配置" controller="op" page="0"/>
+    </component>
+    <component id="n10_wj7r" name="btn_copy" src="xualm" fileName="Button/Button.xml" pkg="nk9ejx23" xy="264,101" size="80,20" group="n12_f54e">
+      <Button title="复制数据" controller="op" page="1"/>
+    </component>
+    <group id="n12_f54e" name="btn" xy="154,101" size="190,21" advanced="true">
+      <relation target="n7_wj7r" sidePair="top-bottom"/>
+    </group>
+    <text id="n13_f54e" name="text_mode" xy="13,101" size="88,19" fontSize="12" color="#bdbdbd" ubb="true" vars="true" text="当前模式：[color=#ff0000]{mode=设置}[/color]">
+      <relation target="n7_wj7r" sidePair="top-bottom"/>
+    </text>
+  </displayList>
+  <relation target="n7_wj7r" sidePair="height-height"/>
+</component>

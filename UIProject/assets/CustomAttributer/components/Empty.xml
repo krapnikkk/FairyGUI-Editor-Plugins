@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="332,80">
+  <displayList>
+    <text id="n0_wj7r" name="n0" xy="92,23" size="148,34" font="Microsoft YaHei" fontSize="24" color="#ffffff" bold="true" text="暂未配置控件">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </text>
+  </displayList>
+</component>

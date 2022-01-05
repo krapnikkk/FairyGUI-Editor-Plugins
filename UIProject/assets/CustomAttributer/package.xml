@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="1g71c9u2">
+  <resources>
+    <component id="u66t0" name="Main.xml" path="/" exported="true"/>
+    <component id="wj7rb" name="Textarea.xml" path="/components/" exported="true"/>
+    <component id="wj7rc" name="Empty.xml" path="/components/"/>
+    <component id="wj7rg" name="Slider.xml" path="/components/" exported="true"/>
+    <component id="wj7rv" name="ComboBox.xml" path="/components/" exported="true"/>
+    <component id="wj7rw" name="Textinput.xml" path="/components/" exported="true"/>
+    <component id="jatvx" name="ColorInput.xml" path="/components/" exported="true"/>
+  </resources>
+  <publish name=""/>
+</packageDescription>
