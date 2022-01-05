@@ -1,5 +1,6 @@
 export interface IConfig {
     remote: boolean, // 远程配置地址
+    title:string,//inspectorName
     parent: boolean,// 父级组件
     pattern?: string,//匹配符
     mode?: EMode,// 1：设置模式 2：读取模式
@@ -42,7 +43,8 @@ export enum EComponent {
     TEXTAREA = "Textarea",
     COMBOBOX = "ComboBox",
     COLORINPUT = "ColorInput",
-    SLIDER = "Slider"
+    SLIDER = "Slider",
+    RESOURCEINPUT = "ResourceInput",
 }
 
 export enum EMode {

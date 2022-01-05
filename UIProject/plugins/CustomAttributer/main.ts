@@ -1,4 +1,5 @@
 import { FairyGUI, FairyEditor, System } from 'csharp';
+import { $generic, $typeof } from 'puerts';
 import { IConfig, IComponent, EComponent, EMode } from './index';
 
 const App = FairyEditor.App;
@@ -35,7 +36,7 @@ if (config.remote) {
 }
 
 
-let { parent, pattern, components, mode } = config;
+let { parent, pattern, components, mode,title } = config;
 
 App.pluginManager.LoadUIPackage(App.pluginManager.basePath + "/" + eval("__dirname") + '/CustomAttributer')
 
@@ -56,6 +57,11 @@ class CustomAttributer extends FairyEditor.View.PluginInspector {
         this.mode = mode;
         this.list.numItems = 0;
         this.modeCtr = this.panel.GetController("op");
+        this.showList();
+        this.updateAction = () => { return this.updateUI(); };
+    }
+
+    private showList() {
         if (this.mode == EMode.WRITE) {
             this.textMode.SetVar("mode", "设置").FlushVars();
             this.modeCtr.SetSelectedPage("write");
@@ -72,9 +78,9 @@ class CustomAttributer extends FairyEditor.View.PluginInspector {
             if (!com) {
                 console.log("发现未定义扩展组件ID：", id);
             }
-            if(com.hasOwnProperty("title")){
-                com.asButton.title = name;
-            }
+
+            (<FairyGUI.GButton>com).title = name;
+
             if (!defaultVal) {
                 defaultVal = "";
             }
@@ -84,22 +90,26 @@ class CustomAttributer extends FairyEditor.View.PluginInspector {
                 let { values, items } = data;
                 console.log(values, items);
                 console.log("GComboBox:", component);
-                // component.items = [];
-                // component.values = [];
-                // component.items = items;
-                // component.values = values;
+                let valueArr = System.Array.CreateInstance($typeof(System.String), values.length) as System.Array$1<string>;
+                for (let i = 0; i < values.length; i++) {
+                    let v = values[i];
+                    valueArr.set_Item(i, v);
+                }
+
+                let itemArr = System.Array.CreateInstance($typeof(System.String), items.length) as System.Array$1<string>;
+                for (let i = 0; i < items.length; i++) {
+                    let v = items[i];
+                    itemArr.set_Item(i, v);
+                }
+
+                component.items = itemArr;
+                component.values = valueArr;
             } else {
                 component.text = defaultVal as string;
             }
             this.list.AddChild(com);
         }
         this.list.ResizeToFit();
-
-        this.updateAction = () => { return this.updateUI(); };
-    }
-
-    private showList() {
-
     }
 
     private updateUI(): boolean {
@@ -116,10 +126,8 @@ class CustomAttributer extends FairyEditor.View.PluginInspector {
     }
 }
 
-//Register a inspector
-App.inspectorView.AddInspector(() => new CustomAttributer(), "CustomAttributerJS", "CustomAttributer");
-//Condition to show it
-App.docFactory.ConnectInspector("CustomAttributerJS", "mixed", parent, false);
+App.inspectorView.AddInspector(() => new CustomAttributer(), "CustomAttributer", title);
+App.docFactory.ConnectInspector("CustomAttributer", "mixed", parent, false);
 
 /**
  * @param {string} s
@@ -186,8 +194,15 @@ let getComponent = (componentType: EComponent): FairyGUI.GComponent => {
         case EComponent.COLORINPUT:
             component = FairyGUI.UIPackage.CreateObject("CustomAttributer", EComponent.COLORINPUT).asCom;
             break;
+        case EComponent.SLIDER:
+            component = FairyGUI.UIPackage.CreateObject("CustomAttributer", EComponent.SLIDER).asCom;
+            break;
+        case EComponent.RESOURCEINPUT:
+            component = FairyGUI.UIPackage.CreateObject("CustomAttributer", EComponent.RESOURCEINPUT).asCom;
+            break;
         default:
             break;
     }
     return component;
 }
+

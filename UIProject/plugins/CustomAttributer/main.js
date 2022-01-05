@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const csharp_1 = require("csharp");
+const puerts_1 = require("puerts");
 const index_1 = require("./index");
 const App = csharp_1.FairyEditor.App;
 // 首先读取本地文件配置获取是否本地配置还是远程配置
@@ -36,7 +37,7 @@ if (config.remote) {
         console.warn(e);
     }
 }
-let { parent, pattern, components, mode } = config;
+let { parent, pattern, components, mode, title } = config;
 App.pluginManager.LoadUIPackage(App.pluginManager.basePath + "/" + eval("__dirname") + '/CustomAttributer');
 class CustomAttributer extends csharp_1.FairyEditor.View.PluginInspector {
     list;
@@ -53,6 +54,10 @@ class CustomAttributer extends csharp_1.FairyEditor.View.PluginInspector {
         this.mode = mode;
         this.list.numItems = 0;
         this.modeCtr = this.panel.GetController("op");
+        this.showList();
+        this.updateAction = () => { return this.updateUI(); };
+    }
+    showList() {
         if (this.mode == index_1.EMode.WRITE) {
             this.textMode.SetVar("mode", "设置").FlushVars();
             this.modeCtr.SetSelectedPage("write");
@@ -70,9 +75,7 @@ class CustomAttributer extends csharp_1.FairyEditor.View.PluginInspector {
             if (!com) {
                 console.log("发现未定义扩展组件ID：", id);
             }
-            if (com.hasOwnProperty("title")) {
-                com.asButton.title = name;
-            }
+            com.title = name;
             if (!defaultVal) {
                 defaultVal = "";
             }
@@ -82,10 +85,18 @@ class CustomAttributer extends csharp_1.FairyEditor.View.PluginInspector {
                 let { values, items } = data;
                 console.log(values, items);
                 console.log("GComboBox:", component);
-                // component.items = [];
-                // component.values = [];
-                // component.items = items;
-                // component.values = values;
+                let valueArr = csharp_1.System.Array.CreateInstance((0, puerts_1.$typeof)(csharp_1.System.String), values.length);
+                for (let i = 0; i < values.length; i++) {
+                    let v = values[i];
+                    valueArr.set_Item(i, v);
+                }
+                let itemArr = csharp_1.System.Array.CreateInstance((0, puerts_1.$typeof)(csharp_1.System.String), items.length);
+                for (let i = 0; i < items.length; i++) {
+                    let v = items[i];
+                    itemArr.set_Item(i, v);
+                }
+                component.items = itemArr;
+                component.values = valueArr;
             }
             else {
                 component.text = defaultVal;
@@ -93,9 +104,6 @@ class CustomAttributer extends csharp_1.FairyEditor.View.PluginInspector {
             this.list.AddChild(com);
         }
         this.list.ResizeToFit();
-        this.updateAction = () => { return this.updateUI(); };
-    }
-    showList() {
     }
     updateUI() {
         // 根据匹配规则验证是否显示inspector
@@ -109,10 +117,8 @@ class CustomAttributer extends csharp_1.FairyEditor.View.PluginInspector {
         App.activeDoc.inspectingTarget.SetProperty(propName, data);
     }
 }
-//Register a inspector
-App.inspectorView.AddInspector(() => new CustomAttributer(), "CustomAttributerJS", "CustomAttributer");
-//Condition to show it
-App.docFactory.ConnectInspector("CustomAttributerJS", "mixed", parent, false);
+App.inspectorView.AddInspector(() => new CustomAttributer(), "CustomAttributer", title);
+App.docFactory.ConnectInspector("CustomAttributer", "mixed", parent, false);
 /**
  * @param {string} s
  * @param {string} p
@@ -179,6 +185,12 @@ let getComponent = (componentType) => {
             break;
         case index_1.EComponent.COLORINPUT:
             component = csharp_1.FairyGUI.UIPackage.CreateObject("CustomAttributer", index_1.EComponent.COLORINPUT).asCom;
+            break;
+        case index_1.EComponent.SLIDER:
+            component = csharp_1.FairyGUI.UIPackage.CreateObject("CustomAttributer", index_1.EComponent.SLIDER).asCom;
+            break;
+        case index_1.EComponent.RESOURCEINPUT:
+            component = csharp_1.FairyGUI.UIPackage.CreateObject("CustomAttributer", index_1.EComponent.RESOURCEINPUT).asCom;
             break;
         default:
             break;

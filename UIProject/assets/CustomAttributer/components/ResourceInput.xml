@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="248,20" extention="Button" remark="{}">
+  <displayList>
+    <text id="n1_edka" name="title" xy="0,0" size="71,20" fontSize="12" color="#bdbdbd" align="center" autoSize="none" text="name"/>
+    <component id="n4_wj7r" name="component" src="au3n6j" fileName="Input/ResourceInput.xml" pkg="nk9ejx23" xy="77,0" size="171,20" customData="{}"/>
+  </displayList>
+  <Button/>
+</component>

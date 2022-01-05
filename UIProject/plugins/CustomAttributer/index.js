@@ -8,6 +8,7 @@ var EComponent;
     EComponent["COMBOBOX"] = "ComboBox";
     EComponent["COLORINPUT"] = "ColorInput";
     EComponent["SLIDER"] = "Slider";
+    EComponent["RESOURCEINPUT"] = "ResourceInput";
 })(EComponent = exports.EComponent || (exports.EComponent = {}));
 var EMode;
 (function (EMode) {

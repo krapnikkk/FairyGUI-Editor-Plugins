@@ -1,30 +1,42 @@
 {
     "remote": "",
+    "title": "自定义数据表单",
     "parent": false,
     "pattern": "*",
     "mode": 2,
     "components": [
         {
             "type": "Textarea",
-            "name":"属性一",
+            "name": "属性一",
             "id": 1001,
-            "defaultVal":"1"
+            "defaultVal": "1"
         },
         {
             "type": "ComboBox",
             "id": 1002,
-            "data":{
-                "items":["样式一","样式二","样式三"],
-                "values":[1,2,3]
+            "name": "属性二",
+            "data": {
+                "items": [
+                    "样式一",
+                    "样式二",
+                    "样式三"
+                ],
+                "values": [
+                    "样式一",
+                    "样式二",
+                    "样式三"
+                ]
             }
         },
         {
             "type": "ColorInput",
+            "name": "属性三",
             "id": 1003
         },
         {
             "type": "Slider",
-            "id": 1003
+            "name": "属性四",
+            "id": 1004
         }
     ]
 }
