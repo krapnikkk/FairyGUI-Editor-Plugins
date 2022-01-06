@@ -3,7 +3,7 @@
     "title": "自定义数据表单",
     "parent": false,
     "pattern": "*",
-    "mode": 2,
+    "mode": 1,
     "components": [
         {
             "type": "Textarea",

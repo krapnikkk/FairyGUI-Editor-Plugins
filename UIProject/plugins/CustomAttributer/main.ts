@@ -37,7 +37,6 @@ if (config.remote) {
 
 
 let { parent, pattern, components, mode, title } = config;
-
 App.pluginManager.LoadUIPackage(App.pluginManager.basePath + "/" + eval("__dirname") + '/CustomAttributer')
 
 class CustomAttributer extends FairyEditor.View.PluginInspector {
@@ -46,6 +45,8 @@ class CustomAttributer extends FairyEditor.View.PluginInspector {
     private textMode: FairyGUI.GTextField;
     private mode: EMode;
     private modeCtr: FairyGUI.Controller;
+    private btn_save: FairyGUI.GButton;
+    private customData: string = "";
 
     public constructor() {
         super();
@@ -54,21 +55,26 @@ class CustomAttributer extends FairyEditor.View.PluginInspector {
         this.components = components;
         this.list = this.panel.GetChild("list_components").asList;
         this.textMode = this.panel.GetChild("text_mode").asTextField;
-        this.mode = mode;
+        this.mode = mode; // todo
         this.list.numItems = 0;
         this.modeCtr = this.panel.GetController("op");
+        this.btn_save = this.panel.GetChild("btn_save").asButton;
+        this.btn_save.onClick.Add(() => {
+            this.setCustomData(this.customData);
+        })
         this.showList();
         this.updateAction = () => { return this.updateUI(); };
     }
 
     private showList() {
-        if (this.mode == EMode.WRITE) {
-            this.textMode.SetVar("mode", "设置").FlushVars();
-            this.modeCtr.SetSelectedPage("write");
-        } else {
-            this.textMode.SetVar("mode", "读取").FlushVars();
-            this.modeCtr.SetSelectedPage("read");
-        }
+        // todo
+        // if (this.mode == EMode.WRITE) {
+        this.textMode.SetVar("mode", "设置").FlushVars();
+        this.modeCtr.SetSelectedPage("write");
+        // } else {
+        //     this.textMode.SetVar("mode", "读取").FlushVars();
+        //     this.modeCtr.SetSelectedPage("read");
+        // }
         for (let item of this.components) {
             let { type, name, defaultVal, id } = item;
             let com = getComponent(type);
@@ -84,44 +90,53 @@ class CustomAttributer extends FairyEditor.View.PluginInspector {
             if (!defaultVal) {
                 defaultVal = "";
             }
+
             const component = com.GetChild("component");
-            if (component instanceof FairyGUI.GComboBox && item.type == EComponent.COMBOBOX) {
-                let { data } = item;
-                let { values, items } = data;
-                console.log(values, items);
-                console.log("GComboBox:", component);
-                let valueArr = System.Array.CreateInstance($typeof(System.String), values.length) as System.Array$1<string>;
-                for (let i = 0; i < values.length; i++) {
-                    let v = values[i];
-                    valueArr.set_Item(i, v);
-                }
-
-                let itemArr = System.Array.CreateInstance($typeof(System.String), items.length) as System.Array$1<string>;
-                for (let i = 0; i < items.length; i++) {
-                    let v = items[i];
-                    itemArr.set_Item(i, v);
-                }
-
-                component.items = itemArr;
-                component.values = valueArr;
-            } else {
-                component.text = defaultVal as string;
-            }
+            this.renderItem(component,item);
             this.list.AddChild(com);
         }
         this.list.ResizeToFit();
     }
 
+    private renderItem(component:FairyGUI.GObject,item:IComponent) {
+        if (component instanceof FairyGUI.GComboBox && item.type == EComponent.COMBOBOX) {
+            let { data } = item;
+            let { values, items } = data;
+            let valueArr = System.Array.CreateInstance($typeof(System.String), values.length) as System.Array$1<string>;
+            for (let i = 0; i < values.length; i++) {
+                let v = values[i];
+                valueArr.set_Item(i, v);
+            }
+
+            let itemArr = System.Array.CreateInstance($typeof(System.String), items.length) as System.Array$1<string>;
+            for (let i = 0; i < items.length; i++) {
+                let v = items[i];
+                itemArr.set_Item(i, v);
+            }
+
+            component.items = itemArr;
+            component.values = valueArr;
+        } else {
+            component.text = item.defaultVal as string;
+        }
+    }
+
     private updateUI(): boolean {
+        let curDoc = App.activeDoc;
+        let { inspectingTarget } = curDoc;
+        // 实时获取自定义数据
+        let propName = parent ? "remark" : "customData";
+        this.customData = inspectingTarget.GetProperty(propName);
+
         // 根据匹配规则验证是否显示inspector
         // 正则 & 字符串 通配符
-        let name = parent ? App.activeDoc.displayTitle : App.activeDoc.inspectingTarget.name;
+        let name = parent ? curDoc.displayTitle : inspectingTarget.name;
         pattern = !pattern ? "*" : pattern;
         return isMatch(name, pattern);
     }
 
     private setCustomData(data: string) {
-        let propName = parent ? "customData" : "remark";
+        let propName = parent ? "remark" : "customData";
         App.activeDoc.inspectingTarget.SetProperty(propName, data);
     }
 }

@@ -5,7 +5,7 @@
     <list id="n7_wj7r" name="list_components" xy="12,9" size="332,82" overflow="scroll" scrollBarFlags="4" lineGap="10" defaultItem="ui://1g71c9u2wj7rc">
       <item/>
     </list>
-    <component id="n5_nmoy" name="btn_save" src="xualm" fileName="Button/Button.xml" pkg="nk9ejx23" xy="154,102" size="80,20" group="n12_f54e">
+    <component id="n5_nmoy" name="btn_save" src="xualm" fileName="Button/Button.xml" pkg="nk9ejx23" xy="154,102" size="80,20" group="n12_f54e" customData="{&quot;a&quot;:1}">
       <gearDisplay controller="op" pages="0"/>
       <Button title="更新配置"/>
     </component>
