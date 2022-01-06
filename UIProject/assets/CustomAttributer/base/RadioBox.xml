@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="162,19">
+  <controller name="ratio" pages="0,0,1,1" selected="0"/>
   <displayList>
     <component id="n0_sivs" name="n0" src="gcza13" fileName="Button/RadioButton.xml" pkg="nk9ejx23" xy="0,0" size="57,19">
       <Button checked="true" title="选项一"/>
