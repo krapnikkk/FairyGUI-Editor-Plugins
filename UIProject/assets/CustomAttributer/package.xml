@@ -4,11 +4,18 @@
     <component id="u66t0" name="Main.xml" path="/" exported="true"/>
     <component id="wj7rb" name="Textarea.xml" path="/components/" exported="true"/>
     <component id="wj7rc" name="Empty.xml" path="/components/"/>
-    <component id="wj7rg" name="Slider.xml" path="/components/" exported="true"/>
+    <component id="wj7rg" name="NumberInput.xml" path="/components/" exported="true"/>
     <component id="wj7rv" name="ComboBox.xml" path="/components/" exported="true"/>
     <component id="wj7rw" name="Textinput.xml" path="/components/" exported="true"/>
     <component id="jatvx" name="ColorInput.xml" path="/components/" exported="true"/>
     <component id="jatvy" name="ResourceInput.xml" path="/components/" exported="true"/>
+    <component id="sivsz" name="Slider.xml" path="/components/" exported="true"/>
+    <component id="sivs10" name="Slider.xml" path="/base/"/>
+    <component id="sivs11" name="SliderArrow_HZ.xml" path="/base/"/>
+    <component id="sivs12" name="RadioBox.xml" path="/components/" exported="true"/>
+    <component id="sivs13" name="RadioBox.xml" path="/base/"/>
+    <component id="sivs15" name="Switch.xml" path="/components/" exported="true"/>
+    <component id="sivs17" name="Switch.xml" path="/base/"/>
   </resources>
   <publish name=""/>
 </packageDescription>

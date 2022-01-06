@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="162,19">
+  <displayList>
+    <component id="n0_sivs" name="n0" src="gcza13" fileName="Button/RadioButton.xml" pkg="nk9ejx23" xy="0,0" size="57,19">
+      <Button checked="true" title="选项一"/>
+    </component>
+    <component id="n1_sivs" name="n1" src="gcza13" fileName="Button/RadioButton.xml" pkg="nk9ejx23" xy="88,0" size="57,19">
+      <relation target="n0_sivs" sidePair="right-right"/>
+      <Button title="选项二"/>
+    </component>
+  </displayList>
+</component>

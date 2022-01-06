@@ -119,11 +119,6 @@ class CustomAttributer extends csharp_1.FairyEditor.View.PluginInspector {
 }
 App.inspectorView.AddInspector(() => new CustomAttributer(), "CustomAttributer", title);
 App.docFactory.ConnectInspector("CustomAttributer", "mixed", parent, false);
-/**
- * @param {string} s
- * @param {string} p
- * @return {boolean}
- */
 let isCharacterMatch = (s, p) => {
     let dp = [];
     for (let i = 0; i <= s.length; i++) {
@@ -134,7 +129,6 @@ let isCharacterMatch = (s, p) => {
         dp.push(child);
     }
     dp[s.length][p.length] = true;
-    // 执行
     for (let i = p.length - 1; i >= 0; i--) {
         if (p[i] != "*")
             break;
@@ -186,11 +180,20 @@ let getComponent = (componentType) => {
         case index_1.EComponent.COLORINPUT:
             component = csharp_1.FairyGUI.UIPackage.CreateObject("CustomAttributer", index_1.EComponent.COLORINPUT).asCom;
             break;
-        case index_1.EComponent.SLIDER:
-            component = csharp_1.FairyGUI.UIPackage.CreateObject("CustomAttributer", index_1.EComponent.SLIDER).asCom;
+        case index_1.EComponent.NUMBERINPUT:
+            component = csharp_1.FairyGUI.UIPackage.CreateObject("CustomAttributer", index_1.EComponent.NUMBERINPUT).asCom;
             break;
         case index_1.EComponent.RESOURCEINPUT:
             component = csharp_1.FairyGUI.UIPackage.CreateObject("CustomAttributer", index_1.EComponent.RESOURCEINPUT).asCom;
+            break;
+        case index_1.EComponent.SLIDER:
+            component = csharp_1.FairyGUI.UIPackage.CreateObject("CustomAttributer", index_1.EComponent.SLIDER).asCom;
+            break;
+        case index_1.EComponent.RADIOBOX:
+            component = csharp_1.FairyGUI.UIPackage.CreateObject("CustomAttributer", index_1.EComponent.RADIOBOX).asCom;
+            break;
+        case index_1.EComponent.SWITCH:
+            component = csharp_1.FairyGUI.UIPackage.CreateObject("CustomAttributer", index_1.EComponent.SWITCH).asCom;
             break;
         default:
             break;

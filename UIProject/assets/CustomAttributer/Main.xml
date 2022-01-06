@@ -2,7 +2,7 @@
 <component size="353,150" designImageOffsetX="197" bgColorEnabled="true" bgColor="#383838">
   <controller name="op" pages="0,write,1,read" selected="0"/>
   <displayList>
-    <list id="n7_wj7r" name="list_components" xy="12,9" size="332,82" overflow="scroll" scrollBarFlags="4" defaultItem="ui://1g71c9u2wj7rc">
+    <list id="n7_wj7r" name="list_components" xy="12,9" size="332,82" overflow="scroll" scrollBarFlags="4" lineGap="10" defaultItem="ui://1g71c9u2wj7rc">
       <item/>
     </list>
     <component id="n5_nmoy" name="btn_save" src="xualm" fileName="Button/Button.xml" pkg="nk9ejx23" xy="154,102" size="80,20" group="n12_f54e">

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="44,20" extention="Button">
+  <controller name="button" pages="0,up,1,down" selected="1"/>
+  <displayList>
+    <graph id="n4_sivs" name="bg" xy="0,0" size="44,20" type="rect" lineSize="0" fillColor="#ffff6a12" corner="12">
+      <gearColor controller="button" pages="0" values="#555555" default="#ff6a12" tween="true"/>
+    </graph>
+    <graph id="n2_sivs" name="grip" xy="24,2" size="16,16" touchable="false" type="eclipse" lineSize="0" corner="22">
+      <gearXY controller="button" pages="0,1" values="2,2|24,2" tween="true"/>
+    </graph>
+    <text id="n5_kj08" name="title" xy="2,-4" size="22,26" font="KaiTi" fontSize="18" color="#ffffff" text="√">
+      <gearXY controller="button" pages="0,1" values="19,-3|2,-4" tween="true"/>
+      <gearText controller="button" pages="1" values="√" default="×"/>
+    </text>
+  </displayList>
+  <Button mode="Check"/>
+</component>

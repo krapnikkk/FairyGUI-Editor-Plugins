@@ -37,6 +37,26 @@
             "type": "Slider",
             "name": "属性四",
             "id": 1004
+        },
+        {
+            "type": "NumberInput",
+            "name": "属性四",
+            "id": 1005
+        },
+        {
+            "type": "ResourceInput",
+            "name": "属性五",
+            "id": 1006
+        },
+        {
+            "type": "RadioBox",
+            "name": "属性六",
+            "id": 1007
+        },
+        {
+            "type": "Switch",
+            "name": "属性七",
+            "id": 1008
         }
     ]
 }

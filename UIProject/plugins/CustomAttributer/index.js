@@ -7,8 +7,11 @@ var EComponent;
     EComponent["TEXTAREA"] = "Textarea";
     EComponent["COMBOBOX"] = "ComboBox";
     EComponent["COLORINPUT"] = "ColorInput";
+    EComponent["NUMBERINPUT"] = "NumberInput";
     EComponent["SLIDER"] = "Slider";
     EComponent["RESOURCEINPUT"] = "ResourceInput";
+    EComponent["RADIOBOX"] = "RadioBox";
+    EComponent["SWITCH"] = "Switch";
 })(EComponent = exports.EComponent || (exports.EComponent = {}));
 var EMode;
 (function (EMode) {

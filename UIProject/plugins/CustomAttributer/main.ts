@@ -36,7 +36,7 @@ if (config.remote) {
 }
 
 
-let { parent, pattern, components, mode,title } = config;
+let { parent, pattern, components, mode, title } = config;
 
 App.pluginManager.LoadUIPackage(App.pluginManager.basePath + "/" + eval("__dirname") + '/CustomAttributer')
 
@@ -129,11 +129,7 @@ class CustomAttributer extends FairyEditor.View.PluginInspector {
 App.inspectorView.AddInspector(() => new CustomAttributer(), "CustomAttributer", title);
 App.docFactory.ConnectInspector("CustomAttributer", "mixed", parent, false);
 
-/**
- * @param {string} s
- * @param {string} p
- * @return {boolean}
- */
+
 let isCharacterMatch = (s: string, p: string): boolean => {
     let dp = [];
     for (let i = 0; i <= s.length; i++) {
@@ -144,7 +140,7 @@ let isCharacterMatch = (s: string, p: string): boolean => {
         dp.push(child);
     }
     dp[s.length][p.length] = true;
-    // 执行
+
     for (let i = p.length - 1; i >= 0; i--) {
         if (p[i] != "*") break;
         else dp[s.length][i] = true;
@@ -194,11 +190,20 @@ let getComponent = (componentType: EComponent): FairyGUI.GComponent => {
         case EComponent.COLORINPUT:
             component = FairyGUI.UIPackage.CreateObject("CustomAttributer", EComponent.COLORINPUT).asCom;
             break;
-        case EComponent.SLIDER:
-            component = FairyGUI.UIPackage.CreateObject("CustomAttributer", EComponent.SLIDER).asCom;
+        case EComponent.NUMBERINPUT:
+            component = FairyGUI.UIPackage.CreateObject("CustomAttributer", EComponent.NUMBERINPUT).asCom;
             break;
         case EComponent.RESOURCEINPUT:
             component = FairyGUI.UIPackage.CreateObject("CustomAttributer", EComponent.RESOURCEINPUT).asCom;
+            break;
+        case EComponent.SLIDER:
+            component = FairyGUI.UIPackage.CreateObject("CustomAttributer", EComponent.SLIDER).asCom;
+            break;
+        case EComponent.RADIOBOX:
+            component = FairyGUI.UIPackage.CreateObject("CustomAttributer", EComponent.RADIOBOX).asCom;
+            break;
+        case EComponent.SWITCH:
+            component = FairyGUI.UIPackage.CreateObject("CustomAttributer", EComponent.SWITCH).asCom;
             break;
         default:
             break;

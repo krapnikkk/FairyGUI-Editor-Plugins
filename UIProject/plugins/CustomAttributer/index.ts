@@ -43,8 +43,12 @@ export enum EComponent {
     TEXTAREA = "Textarea",
     COMBOBOX = "ComboBox",
     COLORINPUT = "ColorInput",
+    NUMBERINPUT = "NumberInput",
     SLIDER = "Slider",
     RESOURCEINPUT = "ResourceInput",
+    RADIOBOX = "RadioBox",
+    SWITCH = "Switch",
+
 }
 
 export enum EMode {

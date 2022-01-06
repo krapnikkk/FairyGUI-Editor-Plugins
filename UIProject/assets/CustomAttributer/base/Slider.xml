@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="160,19" extention="Slider">
+  <displayList>
+    <graph id="n3_sivs" name="bg" xy="0,8" size="100,2" type="rect" lineSize="0" fillColor="#ff555555">
+      <relation target="" sidePair="width-width"/>
+    </graph>
+    <graph id="n4_sivs" name="bar" xy="0,8" size="100,2">
+      <relation target="" sidePair="width-width"/>
+    </graph>
+    <component id="n2_sivs" name="grip" src="sivs11" fileName="base/SliderArrow_HZ.xml" xy="88,1">
+      <relation target="n4_sivs" sidePair="right-right"/>
+    </component>
+    <text id="n5_sivs" name="title" xy="108,0" size="52,20" fontSize="12" color="#bdbdbd" align="right" vAlign="middle" autoSize="none" text="">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </text>
+  </displayList>
+  <Slider titleType="valueAndmax" wholeNumbers="true"/>
+</component>
