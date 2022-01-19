@@ -1,0 +1,11 @@
+{
+	"name": "com.fairygui.plugin.customAttributer",
+	"displayName": "自定义数据表单生成器",
+	"description": "一个可配置自定义数据表单生成器,支持组件和父级组件，本地&远程配置，内含9种自定义表单项",
+	"version": "0.0.1",
+	"author": {
+		"name": "krapnik"
+	},
+	"icon": "icon.png",
+	"main": "main.js"
+}
