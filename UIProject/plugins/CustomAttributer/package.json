@@ -1,6 +1,6 @@
 {
 	"name": "com.fairygui.plugin.customAttributer",
-	"displayName": "customAttributer",
+	"displayName": "通用自定义数据配置插件",
 	"description": "通用自定义数据配置插件",
 	"version": "0.0.1",
 	"author": {

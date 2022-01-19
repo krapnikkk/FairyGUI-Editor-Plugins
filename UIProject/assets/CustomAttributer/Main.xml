@@ -5,23 +5,23 @@
     <list id="n7_wj7r" name="list_components" xy="12,9" size="332,82" overflow="scroll" scrollBarFlags="4" lineGap="10" defaultItem="ui://1g71c9u2wj7rc">
       <item/>
     </list>
-    <component id="n5_nmoy" name="btn_save" src="xualm" fileName="Button/Button.xml" pkg="nk9ejx23" xy="77,101" size="80,20" group="n12_f54e" customData="{&quot;a&quot;:1}">
+    <component id="n5_nmoy" name="btn_save" src="xualm" fileName="Button/Button.xml" pkg="nk9ejx23" xy="77,100" size="80,20" group="n12_f54e" customData="{&quot;a&quot;:1}">
       <gearDisplay controller="op" pages="0"/>
-      <Button title="更新配置"/>
+      <Button title="更新数据"/>
     </component>
-    <component id="n8_wj7r" name="btn_reset" src="xualm" fileName="Button/Button.xml" pkg="nk9ejx23" xy="186,101" size="80,20" group="n12_f54e">
+    <component id="n8_wj7r" name="btn_reset" src="xualm" fileName="Button/Button.xml" pkg="nk9ejx23" xy="186,100" size="80,20" group="n12_f54e">
       <gearDisplay controller="op" pages="0"/>
-      <Button title="重置配置"/>
+      <Button title="重置表单"/>
     </component>
-    <component id="n10_wj7r" name="btn_copy" src="xualm" fileName="Button/Button.xml" pkg="nk9ejx23" xy="187,100" size="80,20" group="n12_f54e">
+    <component id="n10_wj7r" name="btn_copy" src="xualm" fileName="Button/Button.xml" pkg="nk9ejx23" xy="187,99" size="80,20" group="n12_f54e">
       <gearDisplay controller="op" pages="1"/>
       <Button title="复制数据"/>
     </component>
-    <group id="n12_f54e" name="btn" xy="77,100" size="190,21" advanced="true">
+    <group id="n12_f54e" name="btn" xy="77,99" size="190,21" advanced="true">
       <relation target="n7_wj7r" sidePair="top-bottom"/>
       <relation target="" sidePair="left-left"/>
     </group>
-    <text id="n13_f54e" name="text_mode" xy="132,125" size="88,19" visible="false" fontSize="12" color="#bdbdbd" ubb="true" vars="true" text="当前模式：[color=#ff0000]{mode=设置}[/color]">
+    <text id="n13_f54e" name="text_mode" xy="132,125" size="88,19" visible="false" fontSize="12" color="#ffffff" ubb="true" vars="true" text="当前模式：[color=#ff0000]{mode=设置}[/color]">
       <relation target="n7_wj7r" sidePair="top-bottom"/>
     </text>
   </displayList>

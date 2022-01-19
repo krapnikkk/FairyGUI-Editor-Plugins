@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="44,20" extention="Button">
-  <controller name="button" pages="0,up,1,down" selected="1"/>
+  <controller name="button" pages="0,up,1,down" selected="0"/>
   <displayList>
-    <graph id="n4_sivs" name="bg" xy="0,0" size="44,20" type="rect" lineSize="0" fillColor="#ffff6a12" corner="12">
+    <graph id="n4_sivs" name="bg" xy="0,0" size="44,20" type="rect" lineSize="0" fillColor="#ff555555" corner="12">
       <gearColor controller="button" pages="0" values="#555555" default="#ff6a12" tween="true"/>
     </graph>
-    <graph id="n2_sivs" name="grip" xy="24,2" size="16,16" touchable="false" type="eclipse" lineSize="0" corner="22">
+    <graph id="n2_sivs" name="grip" xy="2,2" size="16,16" touchable="false" type="eclipse" lineSize="0" corner="22">
       <gearXY controller="button" pages="0,1" values="2,2|24,2" tween="true"/>
     </graph>
-    <text id="n5_kj08" name="title" xy="2,-4" size="22,26" font="KaiTi" fontSize="18" color="#ffffff" text="√">
+    <text id="n5_kj08" name="title" xy="19,-3" size="22,26" font="KaiTi" fontSize="18" color="#ffffff" text="×">
+      <gearDisplay controller="button" pages="0,1"/>
       <gearXY controller="button" pages="0,1" values="19,-3|2,-4" tween="true"/>
       <gearText controller="button" pages="1" values="√" default="×"/>
+      <relation target="" sidePair="center-center,middle-middle"/>
     </text>
   </displayList>
   <Button mode="Check"/>

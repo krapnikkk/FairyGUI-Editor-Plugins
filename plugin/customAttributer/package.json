@@ -1,10 +1,10 @@
 {
-	"name": "com.fairygui.plugin.custominspectorts",
-	"displayName": "Custom Inspector Ts",
-	"description": "Show you how to use custom inspector",
+	"name": "com.fairygui.plugin.customAttributer",
+	"displayName": "通用自定义数据配置插件",
+	"description": "通用自定义数据配置插件",
 	"version": "0.0.1",
 	"author": {
-		"name": "FairyGUI.com"
+		"name": "krapnik"
 	},
 	"icon": "icon.png",
 	"main": "main.js"

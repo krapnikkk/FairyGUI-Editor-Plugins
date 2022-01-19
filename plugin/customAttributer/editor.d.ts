@@ -668,7 +668,6 @@ declare module 'csharp' {
             
         }
         class FileStream extends System.IO.Stream {
-            
         }
         class Stream extends System.MarshalByRefObject {
             
@@ -679,7 +678,10 @@ declare module 'csharp' {
         enum FileAccess { Read = 1, Write = 2, ReadWrite = 3 }
         enum FileShare { None = 0, Read = 1, Write = 2, ReadWrite = 3, Delete = 4, Inheritable = 16 }
         class StreamReader extends System.IO.TextReader {
-            
+            constructor(args:any);
+            ReadToEnd();
+            ReadLine():string;
+            Close():void;
         }
         class TextReader extends System.MarshalByRefObject {
             
