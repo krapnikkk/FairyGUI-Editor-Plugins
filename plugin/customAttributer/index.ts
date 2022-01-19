@@ -88,7 +88,6 @@ export enum EComponent {
     RESOURCEINPUT = "ResourceInput",
     RADIOBOX = "RadioBox",
     SWITCH = "Switch",
-
 }
 
 export enum EMode {
