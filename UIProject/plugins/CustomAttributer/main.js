@@ -36,22 +36,25 @@ if (config.remote) {
         console.warn(e);
     }
 }
-let { parent, pattern, components, mode, title } = config;
-App.pluginManager.LoadUIPackage(App.pluginManager.basePath + "/" + eval("__dirname") + '/CustomAttributer');
 class CustomAttributer extends csharp_1.FairyEditor.View.PluginInspector {
     list;
     components = [];
+    pattern = "*";
+    parent = false;
     textMode;
-    mode;
+    mode = index_1.EMode.WRITE;
     modeCtr;
     btn_save;
     btn_reset;
     customData = "";
     customDataObj = {};
-    constructor() {
+    constructor(data) {
         super();
         this.panel = csharp_1.FairyGUI.UIPackage.CreateObject("CustomAttributer", "Main").asCom;
+        let { components, mode, pattern, parent } = data;
         this.components = components;
+        this.pattern = pattern;
+        this.parent = parent;
         this.list = this.panel.GetChild("list_components").asList;
         this.textMode = this.panel.GetChild("text_mode").asTextField;
         this.mode = mode || index_1.EMode.WRITE; // todo
@@ -76,7 +79,7 @@ class CustomAttributer extends csharp_1.FairyEditor.View.PluginInspector {
         let { inspectingTarget } = curDoc;
         let id = inspectingTarget.id;
         // 实时获取自定义数据
-        let propName = parent ? "remark" : "customData";
+        let propName = this.parent ? "remark" : "customData";
         this.customData = inspectingTarget.GetProperty(propName);
         try {
             this.customDataObj = JSON.parse(this.customData) || {};
@@ -87,15 +90,14 @@ class CustomAttributer extends csharp_1.FairyEditor.View.PluginInspector {
         }
         // 根据匹配规则验证是否显示inspector
         // 正则 & 字符串 通配符
-        let name = parent ? curDoc.displayTitle : inspectingTarget.name;
-        pattern = !pattern ? "*" : pattern;
-        let flag = isMatch(name, pattern);
-        if ((flag && this.lastSelectedComponent != id) || this.customData !== this.lastData) { // 判断是否满足条件的组件以及是上一次选中的组件或者数据是否被修改
+        let name = this.parent ? curDoc.displayTitle : inspectingTarget.name;
+        let pattern = isMatch(name, this.pattern);
+        if ((pattern && this.lastSelectedComponent != id) || this.customData !== this.lastData) { // 判断是否满足条件的组件以及是上一次选中的组件或者数据是否被修改
             this.showList();
         }
         this.lastData = this.customData;
         this.lastSelectedComponent = id;
-        return flag;
+        return pattern;
     }
     showList(reset = false) {
         this.list.numItems = 0;
@@ -195,16 +197,16 @@ class CustomAttributer extends csharp_1.FairyEditor.View.PluginInspector {
             else if (component instanceof csharp_1.FairyEditor.Component.NumericInput) {
                 value = component.value;
             }
-            else if (components[i].type == index_1.EComponent.SWITCH) {
+            else if (this.components[i].type == index_1.EComponent.SWITCH) {
                 value = component.selected;
             }
-            else if (components[i].type == index_1.EComponent.RADIOBOX) {
+            else if (this.components[i].type == index_1.EComponent.RADIOBOX) {
                 value = component.selected ? 1 : 0;
             }
-            else if (components[i].type == index_1.EComponent.SLIDER) {
+            else if (this.components[i].type == index_1.EComponent.SLIDER) {
                 value = component.value;
             }
-            let key = components[i].key;
+            let key = this.components[i].key;
             if (this.customDataObj) {
                 this.customDataObj[key] = value;
             }
@@ -220,13 +222,11 @@ class CustomAttributer extends csharp_1.FairyEditor.View.PluginInspector {
         return this.customDataObj[name];
     }
     setCustomData() {
-        let propName = parent ? "remark" : "customData";
+        let propName = this.parent ? "remark" : "customData";
         let data = this.getListItemVal();
         App.activeDoc.inspectingTarget.docElement.SetProperty(propName, data);
     }
 }
-App.inspectorView.AddInspector(() => new CustomAttributer(), "CustomAttributer", title);
-App.docFactory.ConnectInspector("CustomAttributer", "mixed", parent, false);
 let isCharacterMatch = (s, p) => {
     let dp = [];
     for (let i = 0; i <= s.length; i++) {
@@ -308,3 +308,10 @@ let getComponent = (componentType) => {
     }
     return component;
 };
+App.pluginManager.LoadUIPackage(App.pluginManager.basePath + "/" + eval("__dirname") + '/CustomAttributer');
+for (let i = 0; i < config.inspectors.length; i++) {
+    let inspector = config.inspectors[i];
+    let { parent, title } = inspector;
+    App.inspectorView.AddInspector(() => new CustomAttributer(inspector), title, title);
+    App.docFactory.ConnectInspector(title, "mixed", parent, false);
+}

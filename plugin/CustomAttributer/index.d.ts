@@ -1,5 +1,9 @@
 export interface IConfig {
     remote: boolean, // 远程配置地址
+    inspectors:IInspector[]
+}
+
+export interface IInspector{
     title: string,//inspectorName
     parent: boolean,// 父级组件
     pattern?: string,//匹配符

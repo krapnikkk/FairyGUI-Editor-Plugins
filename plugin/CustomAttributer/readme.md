@@ -23,102 +23,108 @@
 ```
 {
     "remote": "", // 自定义远程路径
-    "title": "自定义数据表单", 
-    "parent": false, // 修改的组件主体类型：true:父级|false:子级
-    "pattern": "*", // 组件名称匹配，支持正则
-    "mode": 1, // 插件模式：1【设置模式】|0【读取模式】（todo）
-    "components": [
+    "inspectors":[
         {
-            "type": "ComboBox",
-            "id": 1001,
-            "name": "属性一",
-            "key":"ComboBox",
-            "data": {
-                "items": [
-                    "选项一",
-                    "选项二",
-                    "选项三"
-                ],
-                "values": [
-                    "选项一",
-                    "选项二",
-                    "选项三"
-                ]
-            },
-            "value": 0
-        },
-        {
-            "type": "ColorInput",
-            "name": "属性二",
-            "key":"ColorInput",
-            "id": 1002,
-            "values": "#ffffff"
-        },
-        {
-            "type": "Slider",
-            "name": "属性三",
-            "id": 1003,
-            "key":"Slider",
-            "value": 50,
-            "data":{
-                "min":0,
-                "max":100
-            }
-        },
-        {
-            "type": "NumberInput",
-            "name": "属性四",
-            "key":"NumberInput",
-            "id": 1004,
-            "value": 50,
-            "data":{
-                "min":0,
-                "max":100,
-                "step":1
-            }
-        },
-        {
-            "type": "ResourceInput",
-            "name": "属性五",
-            "key":"ResourceInput",
-            "id": 1005,
-            "value": ""
-        },
-        {
-            "type": "RadioBox",
-            "name": "属性六",
-            "key":"RadioBox",
-            "id": 1006,
-            "value": 0,
-            "data":{
-                "items":["选项A","选项B"]
-            }
-        },
-        {
-            "type": "Switch",
-            "name": "属性七",
-            "key":"Switch",
-            "id": 1007,
-            "value": true
-        },
-        {
-            "type": "Textinput",
-            "name": "属性八",
-            "key":"Textinput",
-            "id": 1008,
-            "value": "默认内容"
-        },
-        {
-            "type": "Textarea",
-            "name": "属性九",
-            "key":"Textarea",
-            "id": 1009,
-            "value": "默认内容"
+            "title": "自定义数据表单", 
+            "parent": false, // 修改的组件主体类型：true:父级|false:子级
+            "pattern": "*", // 组件名称匹配，支持正则
+            "mode": 1, // 插件模式：1【设置模式】|0【读取模式】（todo）
+            "components": [
+                {
+                    "type": "ComboBox",
+                    "id": 1001,
+                    "name": "属性一",
+                    "key":"ComboBox",
+                    "data": {
+                        "items": [
+                            "选项一",
+                            "选项二",
+                            "选项三"
+                        ],
+                        "values": [
+                            "选项一",
+                            "选项二",
+                            "选项三"
+                        ]
+                    },
+                    "value": 0
+                },
+                {
+                    "type": "ColorInput",
+                    "name": "属性二",
+                    "key":"ColorInput",
+                    "id": 1002,
+                    "values": "#ffffff"
+                },
+                {
+                    "type": "Slider",
+                    "name": "属性三",
+                    "id": 1003,
+                    "key":"Slider",
+                    "value": 50,
+                    "data":{
+                        "min":0,
+                        "max":100
+                    }
+                },
+                {
+                    "type": "NumberInput",
+                    "name": "属性四",
+                    "key":"NumberInput",
+                    "id": 1004,
+                    "value": 50,
+                    "data":{
+                        "min":0,
+                        "max":100,
+                        "step":1
+                    }
+                },
+                {
+                    "type": "ResourceInput",
+                    "name": "属性五",
+                    "key":"ResourceInput",
+                    "id": 1005,
+                    "value": ""
+                },
+                {
+                    "type": "RadioBox",
+                    "name": "属性六",
+                    "key":"RadioBox",
+                    "id": 1006,
+                    "value": 0,
+                    "data":{
+                        "items":["选项A","选项B"]
+                    }
+                },
+                {
+                    "type": "Switch",
+                    "name": "属性七",
+                    "key":"Switch",
+                    "id": 1007,
+                    "value": true
+                },
+                {
+                    "type": "Textinput",
+                    "name": "属性八",
+                    "key":"Textinput",
+                    "id": 1008,
+                    "value": "默认内容"
+                },
+                {
+                    "type": "Textarea",
+                    "name": "属性九",
+                    "key":"Textarea",
+                    "id": 1009,
+                    "value": "默认内容"
+                }
+            ] 
         }
     ]
+    
 }
 ```
 
 ### todo 
+- [x] 多组件配置
 - [ ] 表单子项关联显隐
 - [ ] 【读取模式】一键复制组件属性  

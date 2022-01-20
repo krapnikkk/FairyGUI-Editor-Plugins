@@ -1,6 +1,6 @@
 import { FairyGUI, FairyEditor, System } from 'csharp';
 import { $generic, $typeof } from 'puerts';
-import { IConfig, IComponent, EComponent, EMode } from './index';
+import { IConfig, IComponent, EComponent, EMode, IInspector } from './index';
 
 const App = FairyEditor.App;
 // 首先读取本地文件配置获取是否本地配置还是远程配置
@@ -34,26 +34,27 @@ if (config.remote) {
     }
 }
 
-
-let { parent, pattern, components, mode, title } = config;
-App.pluginManager.LoadUIPackage(App.pluginManager.basePath + "/" + eval("__dirname") + '/CustomAttributer')
-
 class CustomAttributer extends FairyEditor.View.PluginInspector {
     private list: FairyGUI.GList;
     private components: IComponent[] = [];
+    private pattern: string = "*";
+    private parent: boolean = false;
     private textMode: FairyGUI.GTextField;
-    private mode: EMode;
+    private mode: EMode = EMode.WRITE;
     private modeCtr: FairyGUI.Controller;
     private btn_save: FairyGUI.GButton;
     private btn_reset: FairyGUI.GButton;
     private customData: string = "";
     private customDataObj: {} = {};
 
-    public constructor() {
+    public constructor(data: IInspector) {
         super();
 
         this.panel = FairyGUI.UIPackage.CreateObject("CustomAttributer", "Main").asCom;
+        let { components, mode, pattern, parent } = data;
         this.components = components;
+        this.pattern = pattern;
+        this.parent = parent;
         this.list = this.panel.GetChild("list_components").asList;
         this.textMode = this.panel.GetChild("text_mode").asTextField;
         this.mode = mode || EMode.WRITE; // todo
@@ -83,7 +84,7 @@ class CustomAttributer extends FairyEditor.View.PluginInspector {
 
         let id = inspectingTarget.id;
         // 实时获取自定义数据
-        let propName = parent ? "remark" : "customData";
+        let propName = this.parent ? "remark" : "customData";
         this.customData = inspectingTarget.GetProperty(propName);
         try {
             this.customDataObj = JSON.parse(this.customData) || {};
@@ -94,16 +95,15 @@ class CustomAttributer extends FairyEditor.View.PluginInspector {
 
         // 根据匹配规则验证是否显示inspector
         // 正则 & 字符串 通配符
-        let name = parent ? curDoc.displayTitle : inspectingTarget.name;
-        pattern = !pattern ? "*" : pattern;
-        let flag = isMatch(name, pattern);
-        if ((flag && this.lastSelectedComponent != id) || this.customData !== this.lastData) { // 判断是否满足条件的组件以及是上一次选中的组件或者数据是否被修改
+        let name = this.parent ? curDoc.displayTitle : inspectingTarget.name;
+        let pattern = isMatch(name, this.pattern);
+        if ((pattern && this.lastSelectedComponent != id) || this.customData !== this.lastData) { // 判断是否满足条件的组件以及是上一次选中的组件或者数据是否被修改
             this.showList();
         }
 
         this.lastData = this.customData;
         this.lastSelectedComponent = id;
-        return flag;
+        return pattern;
     }
 
     private showList(reset: boolean = false) {
@@ -138,9 +138,9 @@ class CustomAttributer extends FairyEditor.View.PluginInspector {
         this.list.ResizeToFit();
     }
 
-    private renderItem(component: FairyGUI.GObject, item: IComponent,reset:boolean) {
+    private renderItem(component: FairyGUI.GObject, item: IComponent, reset: boolean) {
         let { value, key } = item;
-        if(!reset){
+        if (!reset) {
             let defaultVal = this.getValueByName(key);
             value = defaultVal != undefined ? defaultVal : value;
         }
@@ -198,6 +198,7 @@ class CustomAttributer extends FairyEditor.View.PluginInspector {
         for (let i = 0; i < this.list.numChildren; i++) {
             let item = this.list.GetChildAt(i) as FairyGUI.GComponent;
             let component = item.GetChild("component") as any;
+
             let value = component.title;
             if (component instanceof FairyEditor.Component.ColorInput) {
                 value = FairyEditor.ColorUtil.ToHexString(component.colorValue);
@@ -205,15 +206,15 @@ class CustomAttributer extends FairyEditor.View.PluginInspector {
                 value = component.selectedIndex;
             } else if (component instanceof FairyEditor.Component.NumericInput) {
                 value = component.value;
-            } else if (components[i].type == EComponent.SWITCH) {
+            } else if (this.components[i].type == EComponent.SWITCH) {
                 value = (component as FairyGUI.GButton).selected;
-            } else if (components[i].type == EComponent.RADIOBOX) {
+            } else if (this.components[i].type == EComponent.RADIOBOX) {
                 value = (component as FairyGUI.GButton).selected ? 1 : 0;
-            } else if (components[i].type == EComponent.SLIDER) {
+            } else if (this.components[i].type == EComponent.SLIDER) {
                 value = (component as FairyGUI.GSlider).value;
             }
 
-            let key = components[i].key;
+            let key = this.components[i].key;
             if (this.customDataObj) {
                 this.customDataObj[key] = value;
             }
@@ -232,15 +233,11 @@ class CustomAttributer extends FairyEditor.View.PluginInspector {
     }
 
     private setCustomData() {
-        let propName = parent ? "remark" : "customData";
+        let propName = this.parent ? "remark" : "customData";
         let data = this.getListItemVal();
         App.activeDoc.inspectingTarget.docElement.SetProperty(propName, data);
     }
 }
-
-App.inspectorView.AddInspector(() => new CustomAttributer(), "CustomAttributer", title);
-App.docFactory.ConnectInspector("CustomAttributer", "mixed", parent, false);
-
 
 let isCharacterMatch = (s: string, p: string): boolean => {
     let dp = [];
@@ -321,5 +318,13 @@ let getComponent = (componentType: EComponent): FairyGUI.GComponent => {
             break;
     }
     return component;
+}
+
+App.pluginManager.LoadUIPackage(App.pluginManager.basePath + "/" + eval("__dirname") + '/CustomAttributer')
+for (let i = 0; i < config.inspectors.length; i++) {
+    let inspector = config.inspectors[i];
+    let { parent, title } = inspector;
+    App.inspectorView.AddInspector(() => new CustomAttributer(inspector), title, title);
+    App.docFactory.ConnectInspector(title, "mixed", parent, false);
 }
 
