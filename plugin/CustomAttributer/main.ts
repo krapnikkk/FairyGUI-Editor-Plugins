@@ -131,11 +131,32 @@ class CustomAttributer extends FairyEditor.View.PluginInspector {
 
             (<FairyGUI.GButton>com).title = name || key;
             const component = com.GetChild("component");
-
+            com.name = key;
             this.renderItem(component, item, reset);
+            
             this.list.AddChild(com);
         }
         this.list.ResizeToFit();
+
+        // 更新关联关系
+        for (let item of this.components) {
+            let { associate, key } = item;
+            // 找到关联组件
+            let associateCom,curCom;
+            for(let i = 0;i<this.list.numChildren;i++){
+                let com = this.list.GetChildAt(i);
+                if(com.name == associate){
+                    associateCom = com;
+                }
+                if(com.name == key){
+                    curCom = com;
+                }
+            }
+            if(associateCom && !associateCom.GetChild("component").selected && curCom){
+                this.list.RemoveChild(curCom);
+            }
+        }
+
     }
 
     private renderItem(component: FairyGUI.GObject, item: IComponent, reset: boolean) {
@@ -161,7 +182,7 @@ class CustomAttributer extends FairyEditor.View.PluginInspector {
 
             component.items = itemArr;
             component.values = valueArr;
-            component.value = itemArr[+value || 0];
+            component.value = data.values[+value || 0];
 
         } else if (component instanceof FairyGUI.GLabel &&
             (
@@ -203,7 +224,8 @@ class CustomAttributer extends FairyEditor.View.PluginInspector {
             if (component instanceof FairyEditor.Component.ColorInput) {
                 value = FairyEditor.ColorUtil.ToHexString(component.colorValue);
             } else if (component instanceof FairyGUI.GComboBox) {
-                value = component.selectedIndex;
+                // value = component.selectedIndex;
+                value = component.values.get_Item(component.selectedIndex);
             } else if (component instanceof FairyEditor.Component.NumericInput) {
                 value = component.value;
             } else if (this.components[i].type == EComponent.SWITCH) {

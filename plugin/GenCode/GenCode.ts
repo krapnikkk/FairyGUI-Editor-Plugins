@@ -26,6 +26,19 @@ function genCode(handler: FairyEditor.PublishHandler, isPuerts = true) {
         let classInfo = classes.get_Item(i);
         let members = classInfo.members;
         let references = classInfo.references;
+        let memberCnt = members.Count;
+            let extensionsMap = {};
+            for (let j = 0; j < memberCnt; j++) {
+                let memberInfo = members.get_Item(j);
+                if(memberInfo.res){
+                    if(memberInfo.res.type == "component"){
+                        let xml = handler.GetItemDesc(memberInfo.res);
+                        if(xml.HasAttribute("customData")){
+                            extensionsMap[memberInfo.type] = xml.GetAttribute("customData");
+                        }
+                    }
+                }
+            }
         writer.reset();
 
         if (isPuerts) {
@@ -33,11 +46,22 @@ function genCode(handler: FairyEditor.PublishHandler, isPuerts = true) {
             writer.writeln();
         }
 
+
         let refCount = references.Count;
         if (refCount > 0) {
             for (let j: number = 0; j < refCount; j++) {
                 let ref = references.get_Item(j);
-                writer.writeln('import %s from "./%s";', ref, ref);
+                if (extensionsMap[ref]) {
+                    let extensionData = JSON.parse(extensionsMap[ref]);
+                    let { customExtension, extensionClz } = extensionData;
+                    if (customExtension) {
+                        writer.writeln('import %s from "%s";', ref, `../extensions/${extensionClz}`);
+                    } else {
+                        writer.writeln('import %s from "./%s";', ref, ref);
+                    }
+                } else {
+                    writer.writeln('import %s from "./%s";', ref, ref);
+                }
             }
             writer.writeln();
         }
@@ -62,7 +86,6 @@ function genCode(handler: FairyEditor.PublishHandler, isPuerts = true) {
         }
         writer.startBlock();
 
-        let memberCnt = members.Count;
         for (let j: number = 0; j < memberCnt; j++) {
             let memberInfo = members.get_Item(j);
             writer.writeln('public %s: %s;', memberInfo.varName, memberInfo.type);

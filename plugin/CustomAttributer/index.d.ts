@@ -17,6 +17,7 @@ export interface IBaseComponent {
     id?: string,
     name?: string,
     key:string, // 唯一值
+    associate?:string //关联组件id
     // value?: number | string // 默认值，该值为空即使用组件默认值
 }
 
