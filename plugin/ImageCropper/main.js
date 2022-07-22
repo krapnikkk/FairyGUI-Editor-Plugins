@@ -36,9 +36,9 @@ dialog.GetChild("crop").onClick.Add(() => {
     }
 });
 const crop = (image) => {
-    let { width, height, fileName, parent, path } = image;
+    let { width, height, fileName, owner, path } = image;
     let basePath = App.project.basePath;
-    let url = `${basePath}/assets/${parent.name}${path}${fileName}`;
+    let url = `${basePath}/assets/${owner.name}${path}${fileName}`;
     let col = +colInput.title, row = +rowInput.title;
     let span = +spanInput.title;
     let cropWidth = Math.round(width / row), cropHeight = Math.round(height / col);
@@ -53,7 +53,7 @@ const crop = (image) => {
             }
             let cropper = csharp_1.FairyEditor.VImage.New(url, width, height);
             cropper.Crop(new csharp_1.UnityEngine.Rect(x, y, w, h));
-            cropper.Save(`${basePath}/assets/${parent.name}/${fileName.split(".")[0]}_${j}_${i}.png`);
+            cropper.Save(`${basePath}/assets/${owner.name}/${fileName.split(".")[0]}_${j}_${i}.png`);
             cropper.Dispose();
         }
     }
