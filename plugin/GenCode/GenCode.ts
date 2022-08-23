@@ -22,146 +22,160 @@ function genCode(handler: FairyEditor.PublishHandler, isPuerts = true) {
 
     let classCnt = classes.Count;
     let writer = new CodeWriter({ blockFromNewLine: false, usingTabs: true });
+    let exportCodeMap = {};
     for (let i: number = 0; i < classCnt; i++) {
         let classInfo = classes.get_Item(i);
-        let members = classInfo.members;
-        let references = classInfo.references;
-        let memberCnt = members.Count;
+        let customData = handler.GetItemDesc(classInfo.res).GetAttribute("customData")
+		if(customData){
+			customData = JSON.parse(customData);
+			let { exportCode } = customData;
+			if(exportCode){
+				exportCodeMap[classInfo.className] = exportCode;
+				continue;
+			}
+		}
+        let path = classInfo.res.file.replace(/\\/g, "/");
+        if (path.indexOf("extensions") == -1) {
+            let members = classInfo.members;
+            let references = classInfo.references;
+            let memberCnt = members.Count;
             let extensionsMap = {};
             for (let j = 0; j < memberCnt; j++) {
                 let memberInfo = members.get_Item(j);
-                if(memberInfo.res){
-                    if(memberInfo.res.type == "component"){
+                if (memberInfo.res) {
+                    if (memberInfo.res.type == "component") {
                         let xml = handler.GetItemDesc(memberInfo.res);
-                        if(xml.HasAttribute("customData")){
+                        if (xml.HasAttribute("customData")) {
                             extensionsMap[memberInfo.type] = xml.GetAttribute("customData");
                         }
                     }
                 }
             }
-        writer.reset();
+            writer.reset();
 
-        if (isPuerts) {
-            writer.writeln('/* eslint-disable */');
-            writer.writeln();
-        }
+            if (isPuerts) {
+                writer.writeln('/* eslint-disable */');
+                writer.writeln();
+            }
 
 
-        let refCount = references.Count;
-        if (refCount > 0) {
-            for (let j: number = 0; j < refCount; j++) {
-                let ref = references.get_Item(j);
-                if (extensionsMap[ref]) {
-                    let extensionData = JSON.parse(extensionsMap[ref]);
-                    let { customExtension, extensionClz } = extensionData;
-                    if (customExtension) {
-                        writer.writeln('import %s from "%s";', ref, `../extensions/${extensionClz}`);
+            let refCount = references.Count;
+            if (refCount > 0) {
+                for (let j: number = 0; j < refCount; j++) {
+                    let ref = references.get_Item(j);
+                    if (extensionsMap[ref]) {
+                        let extensionData = JSON.parse(extensionsMap[ref]);
+                        let { customExtension, extensionClz } = extensionData;
+                        if (customExtension) {
+                            writer.writeln('import %s from "%s";', ref, `../extensions/${extensionClz}`);
+                        } else {
+                            writer.writeln('import %s from "./%s";', ref, ref);
+                        }
                     } else {
                         writer.writeln('import %s from "./%s";', ref, ref);
                     }
-                } else {
-                    writer.writeln('import %s from "./%s";', ref, ref);
                 }
-            }
-            writer.writeln();
-        }
-
-        if (isPuerts && isUnity) {
-            writer.writeln('import { FairyGUI } from "csharp";');
-            writer.writeln();
-        }
-
-        if (isThree) {
-            writer.writeln('import * as fgui from "fairygui-three";');
-            if (refCount == 0)
                 writer.writeln();
-        }
+            }
 
-        if (classInfo.className == "UI_Main") {
-            writer.writeln('import UIBase from "../../core/ui/UIBase";');
+            if (isPuerts && isUnity) {
+                writer.writeln('import { FairyGUI } from "csharp";');
+                writer.writeln();
+            }
+
+            if (isThree) {
+                writer.writeln('import * as fgui from "fairygui-three";');
+                if (refCount == 0)
+                    writer.writeln();
+            }
+
+            if (classInfo.className == "UI_Main") {
+                writer.writeln('import UIBase from "../../core/ui/UIBase";');
+                writer.writeln();
+                writer.writeln('export default class %s extends %s', classInfo.className, "UIBase");
+            } else {
+                writer.writeln('export default class %s extends %s', classInfo.className, classInfo.superClassName);
+            }
+            writer.startBlock();
+
+            for (let j: number = 0; j < memberCnt; j++) {
+                let memberInfo = members.get_Item(j);
+                writer.writeln('public %s: %s;', memberInfo.varName, memberInfo.type);
+            }
+            writer.writeln('public static URL: string = "ui://%s%s";', handler.pkg.id, classInfo.resId);
             writer.writeln();
-            writer.writeln('export default class %s extends %s', classInfo.className, "UIBase");
-        } else {
-            writer.writeln('export default class %s extends %s', classInfo.className, classInfo.superClassName);
-        }
-        writer.startBlock();
 
-        for (let j: number = 0; j < memberCnt; j++) {
-            let memberInfo = members.get_Item(j);
-            writer.writeln('public %s: %s;', memberInfo.varName, memberInfo.type);
-        }
-        writer.writeln('public static URL: string = "ui://%s%s";', handler.pkg.id, classInfo.resId);
-        writer.writeln();
+            if (isUnity) {
+                writer.writeln('public static createInstance<T extends %s>(): T', classInfo.className);
+            } else {
+                writer.writeln('public static createInstance(): %s', classInfo.className);
+            }
+            writer.startBlock();
 
-        if (isUnity) {
-            writer.writeln('public static createInstance<T extends %s>(): T', classInfo.className);
-        } else {
-            writer.writeln('public static createInstance(): %s', classInfo.className);
-        }
-        writer.startBlock();
+            if (isPuerts && isUnity) {
+                writer.writeln(`const obj = <${classInfo.className}>(${ns}.UIPackage.CreateObject("${handler.pkg.name}", "${classInfo.resName}"));`);
+                writer.writeln(`return obj as T;`);
+            } else {
+                writer.writeln('return <%s>(%s.UIPackage.createObject("%s", "%s"));', classInfo.className, ns, handler.pkg.name, classInfo.resName);
+            }
+            writer.endBlock();
+            writer.writeln();
 
-        if (isPuerts && isUnity) {
-            writer.writeln(`const obj = <${classInfo.className}>(${ns}.UIPackage.CreateObject("${handler.pkg.name}", "${classInfo.resName}"));`);
-            writer.writeln(`return obj as T;`);
-        } else {
-            writer.writeln('return <%s>(%s.UIPackage.createObject("%s", "%s"));', classInfo.className, ns, handler.pkg.name, classInfo.resName);
-        }
-        writer.endBlock();
-        writer.writeln();
+            writer.writeln('protected onConstruct ()');
+            writer.startBlock();
 
-        writer.writeln('protected onConstruct ()');
-        writer.startBlock();
+            if (isPuerts && isUnity) {
+                for (let j: number = 0; j < memberCnt; j++) {
+                    let memberInfo = members.get_Item(j);
+                    if (memberInfo.group == 0) {
+                        if (getMemberByName) {
+                            writer.writeln('this.%s = <%s>(this.GetChild("%s"));', memberInfo.varName, memberInfo.type, memberInfo.name);
+                        } else {
+                            writer.writeln('this.%s = <%s>(this.GetChildAt(%s));', memberInfo.varName, memberInfo.type, memberInfo.index);
+                        }
 
-        if (isPuerts && isUnity) {
-            for (let j: number = 0; j < memberCnt; j++) {
-                let memberInfo = members.get_Item(j);
-                if (memberInfo.group == 0) {
-                    if (getMemberByName) {
-                        writer.writeln('this.%s = <%s>(this.GetChild("%s"));', memberInfo.varName, memberInfo.type, memberInfo.name);
-                    } else {
-                        writer.writeln('this.%s = <%s>(this.GetChildAt(%s));', memberInfo.varName, memberInfo.type, memberInfo.index);
+                        //if (!memberInfo.type.startsWith('FairyGUI.')) {
+                        //    writer.writeln(`(this.${memberInfo.varName} as any).onConstruct();`);
+                        //}
                     }
-
-                    //if (!memberInfo.type.startsWith('FairyGUI.')) {
-                    //    writer.writeln(`(this.${memberInfo.varName} as any).onConstruct();`);
-                    //}
+                    else if (memberInfo.group == 1) {
+                        if (getMemberByName)
+                            writer.writeln('this.%s = this.GetController("%s");', memberInfo.varName, memberInfo.name);
+                        else
+                            writer.writeln('this.%s = this.GetControllerAt(%s);', memberInfo.varName, memberInfo.index);
+                    }
+                    else {
+                        if (getMemberByName)
+                            writer.writeln('this.%s = this.GetTransition("%s");', memberInfo.varName, memberInfo.name);
+                        else
+                            writer.writeln('this.%s = this.GetTransitionAt(%s);', memberInfo.varName, memberInfo.index);
+                    }
                 }
-                else if (memberInfo.group == 1) {
-                    if (getMemberByName)
-                        writer.writeln('this.%s = this.GetController("%s");', memberInfo.varName, memberInfo.name);
-                    else
-                        writer.writeln('this.%s = this.GetControllerAt(%s);', memberInfo.varName, memberInfo.index);
-                }
-                else {
-                    if (getMemberByName)
-                        writer.writeln('this.%s = this.GetTransition("%s");', memberInfo.varName, memberInfo.name);
-                    else
-                        writer.writeln('this.%s = this.GetTransitionAt(%s);', memberInfo.varName, memberInfo.index);
-                }
-            }
-        } else {
-            for (let j: number = 0; j < memberCnt; j++) {
-                let memberInfo = members.get_Item(j);
-                if (memberInfo.group == 0) {
-                    if (getMemberByName)
-                        writer.writeln('this.%s = <%s>(this.getChild("%s"));', memberInfo.varName, memberInfo.type, memberInfo.name);
-                    else
-                        writer.writeln('this.%s = <%s>(this.getChildAt(%s));', memberInfo.varName, memberInfo.type, memberInfo.index);
-                }
-                else if (memberInfo.group == 1) {
-                    if (getMemberByName)
-                        writer.writeln('this.%s = this.getController("%s");', memberInfo.varName, memberInfo.name);
-                    else
-                        writer.writeln('this.%s = this.getControllerAt(%s);', memberInfo.varName, memberInfo.index);
-                }
-                else {
-                    if (getMemberByName)
-                        writer.writeln('this.%s = this.getTransition("%s");', memberInfo.varName, memberInfo.name);
-                    else
-                        writer.writeln('this.%s = this.getTransitionAt(%s);', memberInfo.varName, memberInfo.index);
+            } else {
+                for (let j: number = 0; j < memberCnt; j++) {
+                    let memberInfo = members.get_Item(j);
+                    if (memberInfo.group == 0) {
+                        if (getMemberByName)
+                            writer.writeln('this.%s = <%s>(this.getChild("%s"));', memberInfo.varName, memberInfo.type, memberInfo.name);
+                        else
+                            writer.writeln('this.%s = <%s>(this.getChildAt(%s));', memberInfo.varName, memberInfo.type, memberInfo.index);
+                    }
+                    else if (memberInfo.group == 1) {
+                        if (getMemberByName)
+                            writer.writeln('this.%s = this.getController("%s");', memberInfo.varName, memberInfo.name);
+                        else
+                            writer.writeln('this.%s = this.getControllerAt(%s);', memberInfo.varName, memberInfo.index);
+                    }
+                    else {
+                        if (getMemberByName)
+                            writer.writeln('this.%s = this.getTransition("%s");', memberInfo.varName, memberInfo.name);
+                        else
+                            writer.writeln('this.%s = this.getTransitionAt(%s);', memberInfo.varName, memberInfo.index);
+                    }
                 }
             }
         }
+
         writer.endBlock();
 
         writer.endBlock(); //class
