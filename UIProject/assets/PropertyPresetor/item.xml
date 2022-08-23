@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="270,30">
+  <displayList>
+    <component id="n2_p8xu" name="btn_apply" src="p8xu5" fileName="Button.xml" xy="210,2" size="60,25">
+      <Button title="应用"/>
+    </component>
+    <text id="n5_p8xu" name="title" xy="1,5" size="63,19" fontSize="12" color="#ffffff" align="center" autoSize="none" text="name"/>
+    <component id="n6_p8xu" name="component" src="gcza18" fileName="ComboBox/ComboBox.xml" pkg="nk9ejx23" xy="78,5" size="121,20">
+      <ComboBox visibleItemCount="10"/>
+    </component>
+  </displayList>
+</component>

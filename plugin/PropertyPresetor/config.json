@@ -1,0 +1,79 @@
+{
+    "remote": "",
+    "list": [
+        {
+            "parent": false,
+            "pattern": [
+                "text"
+            ],
+            "content": [
+                {
+                    "title": "字体配置",
+
+                    "attributes": [
+                        {
+                            "name": "F101",
+                            "presets": [
+                                {
+                                    "key": "color",
+                                    "value": "#fffadc"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "F102",
+                            "presets": [
+                                {
+                                    "key": "color",
+                                    "value": "#ffffff"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "F201",
+                            "presets": [
+                                {
+                                    "key": "color",
+                                    "value": "#ffffff"
+                                },
+                                {
+                                    "key": "shadow",
+                                    "value": true
+                                },
+                                {
+                                    "key": "shadowColor",
+                                    "value": "#000000"
+                                },
+                                {
+                                    "key": "shadowOffset",
+                                    "value": "1,1"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "F202",
+                            "presets": [
+                                {
+                                    "key": "color",
+                                    "value": "#ffffff"
+                                },
+                                {
+                                    "key": "stroke",
+                                    "value": true
+                                },
+                                {
+                                    "key": "strokeColor",
+                                    "value": "#000000"
+                                },
+                                {
+                                    "key": "strokeSize",
+                                    "value": "1"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

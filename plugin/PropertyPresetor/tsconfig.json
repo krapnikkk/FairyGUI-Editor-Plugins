@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "sourceMap": false,
+    "typeRoots": [
+      "./@types"
+    ],
+    "outDir": "../../UIProject/plugins/PropertyPresetor"
+    // "outDir": "./"
+  },
+  "include": ["./*"],
+  "exclude": ["./node_modules/**/*"]
+}

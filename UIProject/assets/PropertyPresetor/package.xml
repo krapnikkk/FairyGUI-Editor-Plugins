@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="4erahzmj">
+  <resources>
+    <component id="p8xu0" name="item.xml" path="/" exported="true"/>
+    <image id="p8xu1" name="button_up.png" path="/images/" scale="9grid" scale9grid="10,6,65,11" duplicatePadding="true"/>
+    <image id="p8xu2" name="button_up@2x.png" path="/images/" scale="9grid" scale9grid="15,13,135,26" duplicatePadding="true"/>
+    <image id="p8xu3" name="button_down.png" path="/images/" scale="9grid" scale9grid="10,6,65,11" duplicatePadding="true"/>
+    <image id="p8xu4" name="button_down@2x.png" path="/images/" scale="9grid" scale9grid="19,13,138,26" duplicatePadding="true"/>
+    <component id="p8xu5" name="Button.xml" path="/" exported="true"/>
+    <component id="p8xu6" name="Main.xml" path="/" exported="true"/>
+  </resources>
+  <publish name="" path="../plugin/PropertyPresetor" packageCount="1"/>
+</packageDescription>

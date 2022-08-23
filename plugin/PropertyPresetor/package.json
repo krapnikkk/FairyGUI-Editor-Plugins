@@ -1,0 +1,11 @@
+{
+  "name": "com.fairygui.plugin.PropertyPresetor",
+  "displayName": "元件属性配置预设",
+  "description": "根据自定义的元件属性配置表，一键应用到指定的元件属性上。",
+  "version": "0.0.1",
+  "author": {
+    "name": "krapnik"
+  },
+  "icon": "icon.png",
+  "main": "main.js"
+}
