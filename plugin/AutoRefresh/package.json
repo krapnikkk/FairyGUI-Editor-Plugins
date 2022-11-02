@@ -1,0 +1,11 @@
+{
+  "name": "com.fairygui.plugin.AutoFresh",
+  "displayName": "资源自动刷新插件",
+  "description": "该插件将会在应用前后台切换时自动刷新资源面板",
+  "version": "0.0.1",
+  "author": {
+    "name": "krapnik"
+  },
+  "icon": "icon.png",
+  "main": "main.js"
+}
