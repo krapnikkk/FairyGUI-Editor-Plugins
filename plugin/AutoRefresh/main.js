@@ -73,8 +73,8 @@ let onUpdate = function () {
         return;
     }
     preActive = active;
-    if (active) {
-        console.log("检测到从后台返回, 自动刷新资源列表");
+    if (!active) {
+        console.log("已切换至后台, 自动刷新并更新资源列表");
         App.RefreshProject();
         let pkgs = App.project.allPackages;
         for (let i = 0; i < pkgs.Count; i++) {
